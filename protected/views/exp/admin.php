@@ -230,5 +230,4 @@ $this->widget('zii.widgets.grid.CGridView', array(
 
 	),
 ));
- ?>
-<?php $this->endWidget(); ?>
+$this->endWidget(); ?>
