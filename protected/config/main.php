@@ -81,20 +81,20 @@ return array(
 				*/
 			),
 		),
-            		'mail' => array(
-			'class' => 'ext.yii-mail.YiiMail',
-			'transportType'=>'smtp',
-                        'transportOptions'=>array(
-                           'host'=>'smtp.yandex.ru',
-                           'username'=>'emisdb',
-                           'password'=>'!Q@W#E',
-                           'port'=>'465',
-                           'encryption'=>'ssl',
-                    ),	
-                'viewPath' => 'application.views.mail',
-		'logging' => true,
-		'dryRun' => false,
-		),
+//            		'mail' => array(
+//			'class' => 'ext.yii-mail.YiiMail',
+//			'transportType'=>'smtp',
+//                        'transportOptions'=>array(
+//                           'host'=>'smtp.yandex.ru',
+//                           'username'=>'emisdb',
+//                           'password'=>'!Q@W#E',
+//                           'port'=>'465',
+//                           'encryption'=>'ssl',
+//                    ),	
+//                'viewPath' => 'application.views.mail',
+//		'logging' => true,
+//		'dryRun' => false,
+//		),
 //               		'mail' => array(
 //			'class' => 'ext.yii-mail.YiiMail',
 //			'transportType'=>'smtp',
@@ -109,21 +109,21 @@ return array(
 //		'logging' => true,
 //		'dryRun' => false
 //		), 
-//            'mail' => array(
-//			'class' => 'ext.yii-mail.YiiMail',
-//			'transportType'=>'smtp',
-//                        'transportOptions'=>array(
-//                           'host'=>'smtp.yandex.ru',
-////                           'username'=>'termofit.sale@yandex.ru',
-//                          'username'=>'termofit.sale',
-//                           'password'=>'!Q@W#E$R',
-//                           'port'=>'465',
-//                           'encryption'=>'ssl',
-//                    ),	
-//                'viewPath' => 'application.views.mail',
-//		'logging' => true,
-//		'dryRun' => false
-//		),
+            'mail' => array(
+			'class' => 'ext.yii-mail.YiiMail',
+			'transportType'=>'smtp',
+                        'transportOptions'=>array(
+                           'host'=>'smtp.yandex.ru',
+//                           'username'=>'termofit.sale@yandex.ru',
+                          'username'=>'termofit.sale',
+                           'password'=>'!Q@W#E$R',
+                           'port'=>'465',
+                           'encryption'=>'ssl',
+                    ),	
+                'viewPath' => 'application.views.mail',
+		'logging' => true,
+		'dryRun' => false
+		),
             'ePdf' => array(
         'class'         => 'ext.yii-pdf.EYiiPdf',
         'params'        => array(
@@ -169,7 +169,8 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'info@termofit.ru',
+//		'adminEmail'=>'info@termofit.ru',
+		'adminEmail'=>'termofit.sale@yandex.ru',
 //		'adminEmail'=>'emisdb@yandex.ru',
 		'load_xml'=>'docs/go.xml',  
 		'load_xml_tdir'=>'docs/',  
