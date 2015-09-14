@@ -952,6 +952,7 @@ class TmpXmlController extends Controller
                               else
                            {
                              if(!($prop= DepartmentProp::model()->findByPk(array('id'=>$doprod,'_key'=>'stop'))))
+                       //если имеется параметр stop, то значения параметров контрагента не обновляются
                              {
                                 $prod=Department::model()->findByPk($doprod);
                                 if(!($prod===null))
