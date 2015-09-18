@@ -24,10 +24,21 @@
     $client=$cli['f_n'].", ИНН ".$cli['inn'].", ".$cli['inx'].", ".$cli['reg'].", ".$cli['add'].", ".$cli['tel']
             .", р/с ".$cli['rs_n'].", в ".$cli['rs_t']." ".$cli['rs_p'].",БИК ".$cli['bik'].",корр/с ".$cli['rs_cr'] ;
     if (count($clix)>0)
+    {
     $clientx=$clix['f_n'].", ИНН ".$clix['inn'].", ".$clix['inx'].", ".$clix['reg'].", ".$clix['add'].", ".$clix['tel']
             .", р/с ".$clix['rs_n'].", в ".$clix['rs_t']." ".$clix['rs_p'].",БИК ".$clix['bik'].",корр/с ".$clix['rs_cr'] ;
+    }
     else 
-    $clientx=$client;
+    {
+        if(is_null($cli['fadd']))     $clientx=$client;
+        else
+        {
+      $clientx=$cli['f_n'].", ИНН ".$cli['inn'].", ".$cli['finx'].", ".$cli['freg'].", ".$cli['fadd'].", ".$cli['tel']
+            .", р/с ".$cli['rs_n'].", в ".$cli['rs_t']." ".$cli['rs_p'].",БИК ".$cli['bik'].",корр/с ".$cli['rs_cr'] ;
+          
+        }
+
+    }
     echo $postav;
     ?>
 </div>

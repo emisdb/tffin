@@ -68,8 +68,12 @@
    if (count($clix)>0)
     $clientx=$clix['f_n'].", ".$clix['inx'].", ".$clix['reg'].", ".$clix['add'];
     else 
-    $clientx=$cli['f_n'].", ".$cli['inx'].", ".$cli['reg'].", ".$cli['add'];
-    ?>
+    {
+        if(is_null($cli['fadd']))     $clientx=$cli['f_n'].", ".$cli['inx'].", ".$cli['reg'].", ".$cli['add'];
+        else  $clientx=$cli['f_n'].", ".$cli['finx'].", ".$cli['freg'].", ".$cli['fadd'];
+
+    }
+     ?>
     Грузополучатель и его адрес:<?php echo $clientx; ?> 
    </div>
 </td>
