@@ -120,7 +120,7 @@
 </tr>
 </tbody></table>
 
-<div style="width:100%;font-size:8pt;"  class="editable" id="valuta">
+<div style="width:100%;font-size:8pt;">
     Валюта: наименование, код Российский рубль, 643
   </div>
 
@@ -129,7 +129,7 @@
 <thead>
  <tr>
   <th rowspan="2" style="width:160px;">
-    <div style="width:160px;"  class="editable_sys" id="name_txt">Наименование товара (описание выполненных работ, оказанных услуг), имущественного права</div>  
+    <div style="width:160px;">Наименование товара (описание выполненных работ, оказанных услуг), имущественного права</div>  
   </th> 
   <th colspan="2" style="width:124px;">
     <div style="width:122px;"  id="ed_txt">Единица<br>измерения</div>
