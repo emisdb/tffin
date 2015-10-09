@@ -25,3 +25,20 @@ Stack trace:
 REQUEST_URI=/tffin/index.php?r=site/login
 HTTP_REFERER=http://localhost/tffin/index.php?r=site/login
 ---
+2015/10/08 22:12:53 [error] [php] copy(../oleg/tf/go_5.xml) [<a href='function.copy'>function.copy</a>]: failed to open stream: No such file or directory (C:\OpenServer\domains\localhost\tffin\protected\controllers\TmpXmlController.php:1049)
+Stack trace:
+#0 C:\OpenServer\domains\localhost\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\OpenServer\domains\localhost\yii\framework\web\filters\CFilterChain.php(133): TmpXmlController->runAction()
+#2 C:\OpenServer\domains\localhost\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\OpenServer\domains\localhost\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#4 C:\OpenServer\domains\localhost\yii\framework\web\filters\CInlineFilter.php(58): TmpXmlController->filterAccessControl()
+#5 C:\OpenServer\domains\localhost\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 C:\OpenServer\domains\localhost\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\OpenServer\domains\localhost\yii\framework\web\CController.php(265): TmpXmlController->runActionWithFilters()
+#8 C:\OpenServer\domains\localhost\yii\framework\web\CWebApplication.php(282): TmpXmlController->run()
+#9 C:\OpenServer\domains\localhost\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\OpenServer\domains\localhost\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#11 C:\OpenServer\domains\localhost\tffin\index.php(13): CWebApplication->run()
+REQUEST_URI=/tffin/index.php?r=tmpXml/cxml
+in C:\OpenServer\domains\localhost\tffin\protected\controllers\TmpXmlController.php (1049)
+in C:\OpenServer\domains\localhost\tffin\index.php (13)

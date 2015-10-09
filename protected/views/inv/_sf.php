@@ -26,7 +26,7 @@
 <div class="schetcom_number_date">
     СЧЕТ-ФАКТУРА №
 <?php echo $model['name']; ?>  от 
-    <?php echo Yii::app()->dateFormatter->formatDateTime($model['date'], 'medium', null) ; ?>
+    <?php echo Yii::app()->dateFormatter->formatDateTime($model['date'], 'long', null) ; ?>
 </div>
 <div  class="schetcom_number_date">
     Исправление № -- от --

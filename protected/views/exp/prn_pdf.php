@@ -82,7 +82,7 @@
 </tbody></table> 
 <br>
 <div style="width: 700px; font-weight: bold; font-size: 14pt; padding-left: 5px; background-color: transparent;">
-    Счет № <?php echo $model['name']; ?> от <?php echo Yii::app()->dateFormatter->formatDateTime($model['date'], 'medium', null) ; ?>
+    Счет № <?php echo $model['name']; ?> от <?php echo Yii::app()->dateFormatter->formatDateTime($model['date'], 'long', null) ; ?>
 </div>
 <br>  
 <div style="background-color:#000000;width:100%;font-size:1px;height:2px;">&nbsp;</div>
