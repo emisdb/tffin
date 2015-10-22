@@ -366,6 +366,7 @@ class TmpXmlController extends Controller
                     $model=new TmpDoc;
                         $model->id=(int)$value[0]->cKey+(100*Yii::app()->user->uid);
                         $model->tnum=(string)$value[0]->tNum;
+                        $model->tonum=(string)$value[0]->Acc;
                          $model->ddat=(string)$value[0]->dDat;
                         $model->cfir=(string)$value[0]->cFir;
                         $model->ccli=(string)$value[0]->cCli;
@@ -573,10 +574,11 @@ class TmpXmlController extends Controller
        * отбор загруженных на этапе считывания документов из tmp_doc
        */      
             $sql="SELECT a.* ,"
-                     . " c.id AS c_id, d.id AS d_id, t.id AS t_id, m.id AS m_id "
-                     . " FROM ((((tmp_doc a LEFT JOIN  client_id c ON a.ccli=c.ckey AND c.db=1)"
+                     . " c.id AS c_id, d.id AS d_id, t.id AS t_id, m.id AS m_id, u.id AS u_id "
+                     . " FROM (((((tmp_doc a LEFT JOIN  client_id c ON a.ccli=c.ckey AND c.db=1)"
                      . " LEFT JOIN  department_id d ON a.cfir=d.ckey AND c.db=1)"
                      . " LEFT JOIN  client_id t ON a.transport=t.ckey AND c.db=1)"
+                     . " LEFT JOIN  currency u ON a.tonum=u.longname)"
                      . " LEFT JOIN  account m ON a.man=m.id)"
                      . " WHERE a.user=".Yii::app()->user->uid; 
        $recs=Yii::app()->db->createCommand($sql)->query();
@@ -623,7 +625,7 @@ class TmpXmlController extends Controller
                                $group->account_id=$value['m_id'];
                                $group->amount=$value['bsum'];
                                $group->date=$value['ddat'];
-                               $group->currency_id=1;
+                               $group->currency_id=$value['u_id'];
                                if($group->save())
                                {
                                    if($id>0)  {

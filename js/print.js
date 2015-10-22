@@ -51,6 +51,6 @@ function doprint(state)
 	}
          w.document.write('</body></html>');
          w.document.close();
-    w.print();
+//    w.print();
  }
  
