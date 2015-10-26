@@ -56,5 +56,7 @@ or <b>=</b>) в начале каждого значения чтобы опре
 			 'template'=>'{update}{delete}',
 		),
 	),
-)); 
+));
+		echo "<hr>";
+var_dump($prop);
 ?>

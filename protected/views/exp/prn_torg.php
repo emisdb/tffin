@@ -5,6 +5,7 @@ $tttit="У клиента нет почты";
 if(!is_null($cli['email'])) $tttit=$cli['email'];
 
 $ttwrap='<span class="tooltipster" title="'.$tttit.'">';
+$rs=$model["currency_id"];
 
 Yii::app()->getClientScript()->registerCoreScript('jquery');
 //Yii::app() ->clientScript -> registerScriptFile(Yii::app()->request->baseUrl."/js/printThis.js", CClientScript::POS_END);
@@ -68,7 +69,7 @@ Yii::app()->getClientScript()->registerCoreScript('jquery');
     <tbody><tr>
     <td valign="top">
         <div style="width:350px;font-size:10pt;" id="bank_name">
-        <?php echo $dep['rs_t']." ".$dep['rs_p'] ?>
+        <?php echo $dep['rs_t'.$rs]." ".$dep['rs_p'.$rs] ?>
         </div>   
     </td>
     </tr>
@@ -86,10 +87,10 @@ Yii::app()->getClientScript()->registerCoreScript('jquery');
     </td>
     <td width="200" rowspan="2" style="border-bottom:0px;" >
         <div style="width: 190px; font-size: 10pt; height: 22px; background-color: transparent;">
-        <?php echo $dep['bik'] ?>
+        <?php echo $dep['bik'.$rs] ?>
         </div>
         <div style="width: 190px; font-size: 10pt; background-color: transparent;">
-       <?php echo $dep['rs_cr'] ?>
+       <?php echo $dep['rs_cr'.$rs] ?>
         </div>
     </td>
   </tr>
@@ -109,7 +110,7 @@ Yii::app()->getClientScript()->registerCoreScript('jquery');
         <div style="width: 100px; font-size: 10pt; background-color: transparent;" id="seller_schet_txt">Сч. №</div>     
     </td>
     <td width="200" style="min-height:62px;height:auto;" rowspan="2">
-        <div style="width:190px;font-size:10pt;"  id="seller_schet"><?php echo $dep['rs_n'] ?>
+        <div style="width:190px;font-size:10pt;"  id="seller_schet"><?php echo $dep['rs_n'.$rs] ?>
         </div>     
     </td>
   </tr>

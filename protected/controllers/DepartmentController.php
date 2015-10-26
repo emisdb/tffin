@@ -87,12 +87,26 @@ class DepartmentController extends Controller
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
+		$props= DepartmentProp::model()->findAll("id=".$id);
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
+		if(isset($_POST['Prop']))
+		{
+			foreach ($props as $key => $value) {
+					$value->_value=$_POST['Prop'][$value->_key];
+					$value->save();
+				}
+		}
 		if(isset($_POST['Department']))
 		{
+			$depid= DepartmentId::model()->find("id=".$id);
+			if($depid)
+			{
+				$depid->ckey=$_POST['Department']['depid'];
+				$depid->save();
+			}
 			$model->attributes=$_POST['Department'];
 			if($model->save())
 				$this->redirect(array('admin'));
@@ -100,6 +114,7 @@ class DepartmentController extends Controller
 
 		$this->render('update',array(
 			'model'=>$model,
+			'props'=>$props,
 		));
 	}
 

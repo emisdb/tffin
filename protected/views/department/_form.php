@@ -20,6 +20,21 @@
 		<?php echo $form->textField($model,'name',array('size'=>32,'maxlength'=>32)); ?>
 		<?php echo $form->error($model,'name'); ?>
 	</div>
+	<div class="row">
+		<?php echo $form->labelEx($model,'depid'); ?>
+		<?php echo $form->textField($model,'depid',array('size'=>15,'maxlength'=>15)); ?>
+		<?php echo $form->error($model,'depid'); ?>
+	</div>
+	<?php
+	foreach ($props as $key => $value) {
+			echo  '<div class="row">';
+			echo CHtml::label($value->_key,$value->_key);
+			echo CHtml::textField("Prop[".$value->_key."]",$value->_value,array('size'=>32,'maxlength'=>64));
+			echo  '</div>';
+
+		}
+
+	?>
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Создать' : 'Сохранить'); ?>
