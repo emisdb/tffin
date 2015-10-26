@@ -15,6 +15,17 @@
  */
 class Department extends CActiveRecord
 {
+	private $_dep = null;
+	public function getDepid(){
+		if ($this->_dep === null && $this->departmentid !== null)
+		{
+			$this->_dep = $this->departmentid->ckey;
+		}
+		return $this->_dep;
+	}
+	public function setDepid($value){
+		$this->_dep = $value;
+	}
 	/**
 	 * @return string the associated database table name
 	 */
@@ -48,6 +59,7 @@ class Department extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'departments' => array(self::HAS_MANY, 'DepartmentId', 'id'),
+			'departmentid' => array(self::HAS_ONE, 'DepartmentId', 'id','condition'=>'departmentid.db=1'),
 			'departmentProps' => array(self::HAS_MANY, 'DepartmentProp', 'id'),
 			'exps' => array(self::HAS_MANY, 'Exp', 'department_id'),
 			'incs' => array(self::HAS_MANY, 'Inc', 'department_id'),
@@ -62,6 +74,7 @@ class Department extends CActiveRecord
 		return array(
 			'id' => '№',
 			'name' => 'Наименование',
+			'depid' => 'В базе',
 		);
 	}
 
@@ -86,6 +99,7 @@ class Department extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('name',$this->name,true);
+		$criteria->compare('depiartmentid.ckey',$this->depid,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

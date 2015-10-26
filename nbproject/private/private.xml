@@ -11,13 +11,6 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/D:/denis/OpenServer/domains/localhost/tffin/protected/views/inv/_torg_head.php</file>
-            <file>file:/D:/denis/OpenServer/domains/localhost/tffin/protected/views/inv/_sf.php</file>
-            <file>file:/D:/denis/OpenServer/domains/localhost/tffin/protected/views/exp/prn_pdf.php</file>
-            <file>file:/D:/denis/OpenServer/domains/localhost/tffin/protected/controllers/ExpController.php</file>
-            <file>file:/D:/denis/OpenServer/domains/localhost/tffin/protected/views/exp/prn_torg.php</file>
-            <file>file:/D:/denis/OpenServer/domains/localhost/tffin/protected/views/inv/_torg.php</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

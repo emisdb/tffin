@@ -50,6 +50,7 @@ or <b>=</b>) в начале каждого значения чтобы опре
 	'columns'=>array(
 		'id',
 		'name',
+		'depid',
 		array(
 			'class'=>'CButtonColumn',
 			 'template'=>'{update}{delete}',
