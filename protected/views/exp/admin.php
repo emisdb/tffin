@@ -3,8 +3,6 @@
 /* @var $model Exp */
 
 $this->breadcrumbs=array(
-	'Администрирование'=>array('/site/page','view'=>'admin'),
-//	'Расходы'=>array('index'),
 	'Расходы',
 );
 

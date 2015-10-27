@@ -3,8 +3,6 @@
 /* @var $model Pay */
 
 $this->breadcrumbs=array(
-	'Админисрирование'=>array('/site/page','view'=>'admin'),
-//	'Платежи'=>array('index'),
 	'Платежи',
 );
 

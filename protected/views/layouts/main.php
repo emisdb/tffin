@@ -61,12 +61,13 @@ $this->endWidget('zii.widgets.jui.CJuiDialog');
 				array('label'=>'Отгрузки', 'url'=>array('inv/admin'),'visible'=>((!Yii::app()->user->isGuest)&&($this->permit>0)), 'ajax' => false),
                                 array('label'=>'Отчет', 'url'=>array('exp/report'),'visible'=>((!Yii::app()->user->isGuest)&&($this->permit>2)), 'ajax' => false),
 				array('label'=>'Загрузка', 'url'=>array('tmpXml/admin'),'visible'=>((!Yii::app()->user->isGuest)&&($this->permit>0)), 'ajax' => false),
+                             	array('label'=>'Администрирование', 'url'=>array('/site/page', 'view'=>'admin'),'visible'=>((!Yii::app()->user->isGuest)&&($this->permit>2)), 'ajax' => false),
 //				array('label'=>'Отчет', 'url'=>array('exp/report'),'visible'=>!Yii::app()->user->isGuest, 'ajax' => false),			
 //				array('label'=>'Остатки', 'url'=>array('account/ajaxReq'),'visible'=>!Yii::app()->user->isGuest,'ajax' => array( 'update'=>'#pay_table',
-//        'complete' => 'function() {
-//        $("#accountsdialog").dialog("option","title","Остатки на рассчетных счетах");
-//		$("#accountsdialog").dialog("open");
-//        }',        
+                            //        'complete' => 'function() {
+                            //        $("#accountsdialog").dialog("option","title","Остатки на рассчетных счетах");
+                            //		$("#accountsdialog").dialog("open");
+                            //        }',        
 //)),
 //				array('label'=>'Администрирование', 'url'=>array('/site/page', 'view'=>'admin'),'visible'=>!Yii::app()->user->isGuest, 'ajax' => false),
 				array('label'=>'Вход', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest, 'ajax' => false),
