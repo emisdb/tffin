@@ -1,4 +1,4 @@
-<?php
+п»ї<?php
 /* @var $this CurrencyController */
 /* @var $model Currency */
 /* @var $form CActiveForm */
@@ -11,7 +11,7 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Поля с <span class="required">*</span> обязательны.</p>
+	<p class="note">РџРѕР»СЏ СЃ <span class="required">*</span> РѕР±СЏР·Р°С‚РµР»СЊРЅС‹.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
@@ -34,7 +34,7 @@
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Создать' : 'Сохранить'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'РЎРѕР·РґР°С‚СЊ' : 'РЎРѕС…СЂР°РЅРёС‚СЊ'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

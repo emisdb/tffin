@@ -17,6 +17,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Редакция валюты <?php echo $model->id; ?></h1>
+<h1>Редакция расчетного счета <?php echo $model->id; ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

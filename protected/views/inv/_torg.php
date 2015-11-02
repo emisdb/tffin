@@ -21,7 +21,7 @@
     <?php 
 	 $rs=$model->exp["currency_id"]; 
     $postav=$dep['f_n'].", ИНН ".$dep['inn']."\\".$dep['kpp'].", ".$dep['inx'].", ".$dep['reg'].", ".$dep['add']
-            .", р/с ".$dep['rs_n'.$rs].", в ".$dep['rs_t'.$rs]." ".$dep['rs_p'.$rs].",БИК ".$dep['bik'.$rs].",корр/с ".$dep['rs_cr'.$rs] ;
+            .", р/с ".$dep['rs_n_'.$rs].", в ".$dep['rs_t_'.$rs]." ".$dep['rs_p_'.$rs].",БИК ".$dep['rs_b_'.$rs].",корр/с ".$dep['rs_c_'.$rs] ;
     $client=$cli['f_n'].", ИНН ".$cli['inn'].", ".$cli['inx'].", ".$cli['reg'].", ".$cli['add'].", ".$cli['tel']
             .", р/с ".$cli['rs_n'].", в ".$cli['rs_t']." ".$cli['rs_p'].",БИК ".$cli['bik'].",корр/с ".$cli['rs_cr'] ;
     if (count($clix)>0)

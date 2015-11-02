@@ -15,7 +15,7 @@
     <tbody><tr>
     <td valign="top">
         <div style="width:430px;font-size:10pt;">
-        <?php echo $dep['rs_t'.$rs]." ".$dep['rs_p'.$rs] ?>
+        <?php echo $dep['rs_t_'.$rs]." ".$dep['rs_p_'.$rs] ?>
         </div>   
     </td>
     </tr>
@@ -33,10 +33,10 @@
     </td>
     <td  rowspan="2" style="border: #000 solid 1px;border-bottom:0px;width:200px;">
         <div style="width: 190px; font-size: 10pt; height: 22px; background-color: transparent;">
-        <?php echo $dep['bik'.$rs] ?>
+        <?php echo $dep['rs_b_'.$rs] ?>
         </div>
         <div style="width: 190px; font-size: 10pt; background-color: transparent;">
-       <?php echo $dep['rs_cr'.$rs] ?>
+       <?php echo $dep['rs_c_'.$rs] ?>
         </div>
     </td>
   </tr>
@@ -56,7 +56,7 @@
         <div style="width: 100px; font-size: 10pt; background-color: transparent;">Сч. №</div>     
     </td>
     <td style="width:200px;min-height:62px;height:auto; border: #000 solid 1px;" rowspan="2">
-        <div style="width:190px;font-size:10pt;"><?php echo $dep['rs_n'.$rs] ?>
+        <div style="width:190px;font-size:10pt;"><?php echo $dep['rs_n_'.$rs] ?>
         </div>     
     </td>
   </tr>
