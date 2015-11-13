@@ -143,15 +143,17 @@ $this->widget('zii.widgets.grid.CGridView', array(
 			'header'=>'№',
                         'name'=>'id',
                         'type'=>'raw',
+                        'filter'=>false, 
                         'value'=>"'<a name=\"e_'.\$data->id.'\">'.\$data->id.'</a>'",
              'htmlOptions'=>array('style'=>'width: 40px; text-align:right;'),
 				),
               array(
                         'name'=>'name',
                         'type'=>'raw',
+                        'filter' => CHtml::activeTextField($model,'name'),
+//                  'filter'=>true, 
                         'header'=>'Номер',
                         'value'=>array($model,'nameic'),
-                        'filter'=>true, // Set the filter to false when date range searching
                         'htmlOptions'=>array('style' => 'text-align: right;width: 80px'),
                     ),
 		 array(
