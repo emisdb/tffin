@@ -5,14 +5,12 @@
             <url>protected/views/exp/admin.php</url>
             <bookmark id="4">
                 <name/>
-                <line>150</line>
+                <line>152</line>
                 <key/>
             </bookmark>
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/D:/denis/OpenServer/domains/localhost/tffin/protected/views/department/_form.php</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
