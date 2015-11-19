@@ -144,27 +144,26 @@ class Exp extends CActiveRecord
 	{
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
-		return array(
-			'rtransport' => array(self::BELONGS_TO, 'Client', 'transport'),
-			'client' => array(self::BELONGS_TO, 'Client', 'client_id'),
-			'account' => array(self::BELONGS_TO, 'Account', 'account_id'),
-			'expd' => array(self::HAS_MANY, 'Expd', 'exp'),
-			'department' => array(self::BELONGS_TO, 'Department', 'department_id'),
-			'users' => array(self::BELONGS_TO, 'Users', 'users_id'),
-			'currency' => array(self::BELONGS_TO, 'Currency', 'currency_id'),
-			'pays' => array(self::HAS_MANY, 'Pay', 'exp_id'),
-			'paySum'=>array(self::STAT, 'Pay', 'exp_id', 'select'=> 'SUM(amount)'),
-			'paySumg'=>array(self::STAT, 'Pay', 'exp_id', 'select'=> 'SUM(amount)','condition'=>'date_g IS NOT NULL'),
-			'payCount'=>array(self::STAT, 'Pay', 'exp_id'),
-			'payCountg'=>array(self::STAT, 'Pay', 'exp_id','condition'=>'date_g IS NOT NULL'),
-			'invs' => array(self::HAS_MANY, 'Inv', 'exp_id'),
-			'invDate' => array(self::HAS_ONE, 'Inv', 'exp_id', 'select'=>'invDate.date','order'=>'invDate.date DESC'),
-			'invSum'=>array(self::STAT, 'Inv', 'exp_id', 'select'=> 'SUM(amount)'),
-			'expSum'=>array(self::STAT, 'Expd', 'exp', 'select'=> 'SUM(amount*price)'),
-			'expTot'=>array(self::STAT, 'Expd', 'exp', 'select'=> 'SUM(total)'),
-			'invCount'=>array(self::STAT, 'Inv', 'exp_id'),
-
-	);
+            return array(
+                    'rtransport' => array(self::BELONGS_TO, 'Client', 'transport'),
+                    'client' => array(self::BELONGS_TO, 'Client', 'client_id'),
+                    'account' => array(self::BELONGS_TO, 'Account', 'account_id'),
+                    'expd' => array(self::HAS_MANY, 'Expd', 'exp'),
+                    'department' => array(self::BELONGS_TO, 'Department', 'department_id'),
+                    'users' => array(self::BELONGS_TO, 'Users', 'users_id'),
+                    'currency' => array(self::BELONGS_TO, 'Currency', 'currency_id'),
+                    'pays' => array(self::HAS_MANY, 'Pay', 'exp_id'),
+                    'paySum'=>array(self::STAT, 'Pay', 'exp_id', 'select'=> 'SUM(amount)'),
+                    'paySumg'=>array(self::STAT, 'Pay', 'exp_id', 'select'=> 'SUM(amount)','condition'=>'date_g IS NOT NULL'),
+                    'payCount'=>array(self::STAT, 'Pay', 'exp_id'),
+                    'payCountg'=>array(self::STAT, 'Pay', 'exp_id','condition'=>'date_g IS NOT NULL'),
+                    'invs' => array(self::HAS_MANY, 'Inv', 'exp_id'),
+                    'invDate' => array(self::HAS_ONE, 'Inv', 'exp_id', 'select'=>'invDate.date','order'=>'invDate.date DESC'),
+                    'invSum'=>array(self::STAT, 'Inv', 'exp_id', 'select'=> 'SUM(amount)'),
+                    'expSum'=>array(self::STAT, 'Expd', 'exp', 'select'=> 'SUM(amount*price)'),
+                    'expTot'=>array(self::STAT, 'Expd', 'exp', 'select'=> 'SUM(total)'),
+                    'invCount'=>array(self::STAT, 'Inv', 'exp_id'),
+            );
 	}
 	public function attributeLabels()
 	{
