@@ -203,7 +203,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
                         		array(
 			'class'=>'CButtonColumn',
 //			 'template'=>'{print}'.(($this->permit>2)?'{delete}':''),      
-			 'template'=>'{print}'.(($this->permit>2)?'{arci}{delete}':''),      
+			 'template'=>'{print}'.(($this->permit>2)?'{arci}':'').'{delete}',      
 			 'deleteConfirmation'=>'Удалить счет?',
 //			 'updateButtonOptions'=>array('target'=>'_blank'),
  			'buttons'=>array
@@ -220,6 +220,10 @@ $this->widget('zii.widgets.grid.CGridView', array(
  					'label'=>'Печать',
 					'imageUrl'=>Yii::app()->request->baseUrl.'/css/print.png',
 					'url'=>'array("print","id"=>"$data->id")',
+                                 ),                            
+				'delete' => array
+				(
+ 					'visible'=>(($this->permit>2)?'true':'!(($data->payCount>0)||($data->invCount>0))'),
                                  ),                            
                         )
        
