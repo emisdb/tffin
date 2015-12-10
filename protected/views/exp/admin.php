@@ -3,7 +3,7 @@
 /* @var $model Exp */
 
 $this->breadcrumbs=array(
-	'Расходы',
+	'Счета',
 );
 
 //$this->menu=array(
@@ -95,7 +95,9 @@ $this->widget('zii.widgets.jui.CJuiDatePicker', array(
 <?php echo CHtml::hiddenField('checks');  ?>
 
 <?php echo CHtml::submitButton('Отбор'); // submit button ?> 
-<?php // $this->endWidget(); ?>
+<?php // $this->endWidget(); 
+echo "perm:".$this->permit;
+?>
 <!--<p>
 Для отбора значений можно использовать символы сравнения (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
 or <b>=</b>) в начале каждого значения чтобы определить отбор, который вы хотите использовать.
@@ -131,6 +133,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
        'ajaxUpdate'=>false,
  	'dataProvider'=>$model->search(),
     'enablePagination'=>false,
+    'selectableRows'=>2,
     'summaryText' => "Счетов: {count}",
     'filter'=>$model,
     'rowCssClassExpression'=>'"arc".$data->pub',
@@ -228,6 +231,10 @@ $this->widget('zii.widgets.grid.CGridView', array(
                         )
        
 	),	
+                        		array(
+			'class'=>'CCheckBoxColumn',
+			'visible'=>(($this->permit>2)?true:false),
+                                            ),
 
 
 //		'username',
