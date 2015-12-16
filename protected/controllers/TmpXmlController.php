@@ -339,7 +339,7 @@ class TmpXmlController extends Controller
                       break;
                  case 'xAcc':
                     $model=new TmpXml;
-                        $id=(string)$value[0]->id;
+                        $id=(string)$value[0]->host;
                      foreach ($value[0] as $ke => $valu) { 
                         $model=new TmpXml;
                         $model->ckey=$id;
