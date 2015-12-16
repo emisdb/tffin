@@ -738,7 +738,7 @@ class TmpXmlController extends Controller
 				   }
 			   }
 	   }
-       private function updatebank($client)
+       private function updatebank($client,$grid,$tt=1)
        {
             $it=TmpXml::model()->findAll("ctype=:ctype AND ckey=:ckey AND user=:user",array(':ctype'=>12,':ckey'=>$client,':user'=>Yii::app()->user->uid));
 			if(!($it===null)){
@@ -751,7 +751,7 @@ class TmpXmlController extends Controller
 						if(($bank===null)){
 							$new_bank=true;
 							$bank=new Bank;
-							$bank->type_id=1;
+							$bank->type_id=$tt;
 							$bank->department_id=$grid;
 							$bank->longname=$bank_id;
 							$bank->name=$bank_id;
@@ -916,8 +916,8 @@ class TmpXmlController extends Controller
                                    $prod->country_id=$grid;
                                     $prod->save();
                                   $grid=$prod->id;
-								  $this->updateprop($value['p_key'],$prod->id);
-								  $this->updatebank($value['p_key']);
+								  $this->updateprop($value['p_key'],$grid);
+								  $this->updatebank($value['p_key'],$grid);
 								  }                             
                                 else 
                                 {
@@ -925,6 +925,7 @@ class TmpXmlController extends Controller
                                    $prod->name=$value['p_name'];
                                  $prod->save();
                                   $grid=$prod->id;
+								  $this->updatebank($value['p_key'],$grid,0);
                                 }
                                $j++;
                           if($doprodid==1)
@@ -1011,7 +1012,7 @@ class TmpXmlController extends Controller
                                        $jj=0;
                                   }
 								  $this->updateprop($value['p_key'],$prod->id);
- 								  $this->updatebank($value['p_key']);
+ 								  $this->updatebank($value['p_key'],$prod->id);
                               }                             
                            
                            }
@@ -1030,8 +1031,9 @@ class TmpXmlController extends Controller
                                        $jj=0;
                                   }
                                } 
-                             }
-                           }
+  							$this->updatebank($value['p_key'],$doprod,0);
+                            }
+                            }
                     }
                }
 
