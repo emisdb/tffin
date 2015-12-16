@@ -131,7 +131,7 @@ class Exp extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('client_id, department_id,  currency_id,  date', 'required'),
-			array('client_id, department_id, users_id, currency_id, pay', 'numerical', 'integerOnly'=>true),
+			array('client_id, department_id, users_id, dep_bank_id,, client_bank_id, currency_id, pay', 'numerical', 'integerOnly'=>true),
 			array('amount', 'numerical'),
 			array('name', 'length', 'max'=>64),
 			array('link', 'length', 'max'=>128),
@@ -148,6 +148,8 @@ class Exp extends CActiveRecord
                     'rtransport' => array(self::BELONGS_TO, 'Client', 'transport'),
                     'client' => array(self::BELONGS_TO, 'Client', 'client_id'),
                     'account' => array(self::BELONGS_TO, 'Account', 'account_id'),
+                   'dbank' => array(self::BELONGS_TO, 'Bank', 'dep_bank_id'),
+                   'cbank' => array(self::BELONGS_TO, 'Bank', 'client_bank_id'),
                     'expd' => array(self::HAS_MANY, 'Expd', 'exp'),
                     'department' => array(self::BELONGS_TO, 'Department', 'department_id'),
                     'users' => array(self::BELONGS_TO, 'Users', 'users_id'),

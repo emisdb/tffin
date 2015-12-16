@@ -314,6 +314,16 @@ class TmpXmlController extends Controller
                    if($model->save()) $ii++;                   
                         
                     }
+                   foreach ($value[0]->acc[0] as $ke => $valu) { 
+                   $model=new TmpXml;
+                        $model->ckey=(string)$value[0]->cKey;
+                       $model->cname=(string)$ke;
+                       $model->lname=(string)$valu[0];
+                        $model->ctype=12;
+                          $model->user=Yii::app()->user->uid;
+                   if($model->save()) $ii++;                   
+                        
+                    }
                        break;
                   case 'xFir':
                     $model=new TmpXml;
@@ -327,6 +337,20 @@ class TmpXmlController extends Controller
                         $ii++;
                       }
                       break;
+                 case 'xAcc':
+                    $model=new TmpXml;
+                        $id=(string)$value[0]->id;
+                     foreach ($value[0] as $ke => $valu) { 
+                        $model=new TmpXml;
+                        $model->ckey=$id;
+                       $model->cname=(string)$ke;
+                       $model->lname=(string)$valu[0];
+                        $model->ctype=13;
+                        $model->user=Yii::app()->user->uid;
+                         if($model->save()) $ii++;                   
+                        
+                    }
+                    break;
                   case 'xGrN':
                     $model=new TmpXml;
                         $model->ckey=(string)$value[0]->cKey;
@@ -700,7 +724,66 @@ class TmpXmlController extends Controller
                             $info[]='Отредактикровано накладных:'.$ii;
                             $info['doc']=$resdoc;
        }
-       
+       private function updateprop($client,$clid)
+	   {
+		   $it=TmpXml::model()->findAll("ctype=:ctype AND ckey=:ckey AND user=:user",array(':ctype'=>11,':ckey'=>$client,':user'=>Yii::app()->user->uid));
+		   if(!($it===null)) {
+			   foreach ($it as $valu) {
+				   if(!($prop= ClientProp::model()->findByPk(array('id'=>$clid,'_key'=>$valu->cname))))
+						   $prop=new ClientProp();
+							$prop->id=$clid;
+							$prop->_key=$valu->cname;
+							$prop->_value=$valu->lname;
+							$prop->save();
+				   }
+			   }
+	   }
+       private function updatebank($client)
+       {
+            $it=TmpXml::model()->findAll("ctype=:ctype AND ckey=:ckey AND user=:user",array(':ctype'=>12,':ckey'=>$client,':user'=>Yii::app()->user->uid));
+			if(!($it===null)){
+				$new_bank=false;
+				$bank_ps=array();
+				foreach ($it as $valu) {
+					if ($valu->cname=='id'){
+						$bank_id=$valu->lname;
+						$bank=Bank::model()->find("longname=:longname",array(':longname'=>$bank_id));
+						if(($bank===null)){
+							$new_bank=true;
+							$bank=new Bank;
+							$bank->type_id=1;
+							$bank->department_id=$grid;
+							$bank->longname=$bank_id;
+							$bank->name=$bank_id;
+							$bank->save();
+							}
+						}
+						else {
+							$bank_ps[$valu->cname]=$valu->lname;   
+						}
+				}
+				if($new_bank){
+					foreach ($bank_ps as $key => $valu) {
+						$prop=new BankProp();
+						$prop->id=$bank->id;
+						$prop->_key=$key;
+						$prop->_value=$valu;
+						$prop->save();
+  						
+					}
+				}
+				else {
+					foreach ($bank_ps as $key => $valu) {
+						if(!($prop= BankProp::model()->findByPk(array('id'=>$bank->id,'_key'=>$key))))	$prop=new BankProp();
+						$prop->id=$bank->id;
+						$prop->_key=$key;
+						$prop->_value=$valu;
+						$prop->save();
+                                        }
+					
+				}
+			}
+	   }
   	private function updatesimple($typic,$grtype,$result,&$info)
         {
             if($typic==2)
@@ -716,6 +799,7 @@ class TmpXmlController extends Controller
                      ." WHERE a.user=".Yii::app()->user->uid." AND a.ctype=".$typic;
             }
          $recs=Yii::app()->db->createCommand($sql)->query();
+         //we got the records for tmp_xml table
       
                      $i=0;$j=0;$jj=0;
          if(count($recs)>0){
@@ -830,20 +914,11 @@ class TmpXmlController extends Controller
                                     $prod=new Client();
                                    $prod->name=$value['p_name'];
                                    $prod->country_id=$grid;
-                                $prod->save();
+                                    $prod->save();
                                   $grid=$prod->id;
-                  $it=TmpXml::model()->findAll("ctype=:ctype AND ckey=:ckey AND user=:user",array(':ctype'=>11,':ckey'=>$value['p_key'],':user'=>Yii::app()->user->uid));
-                                     if(!($it===null))
-                                    {
-                                        foreach ($it as $valu) {
-                                            $prop=new ClientProp();
-                                            $prop->id=$grid;
-                                            $prop->_key=$valu->cname;
-                                            $prop->_value=$valu->lname;
-                                         $prop->save();
-                                        }
-                                    }
-                                }
+								  $this->updateprop($value['p_key'],$prod->id);
+								  $this->updatebank($value['p_key']);
+								  }                             
                                 else 
                                 {
                                     $prod=new Department();
@@ -935,20 +1010,9 @@ class TmpXmlController extends Controller
                                        $prod->save();
                                        $jj=0;
                                   }
-                     $it=TmpXml::model()->findAll("ctype=:ctype AND ckey=:ckey AND user=:user",array(':ctype'=>11,':ckey'=>$value['p_key'],':user'=>Yii::app()->user->uid));
-                                if($it)
-                                    {
-                                        foreach ($it as $valu) {
-                                            if(!($prop= ClientProp::model()->findByPk(array('id'=>$prod->id,'_key'=>$valu->cname))))
-                                                    $prop=new ClientProp();
-                                            $prop->id=$prod->id;
-                                            $prop->_key=$valu->cname;
-                                            $prop->_value=$valu->lname;
-                                            $prop->save();
-                                        }
-                                    }
-
-                               }                             
+								  $this->updateprop($value['p_key'],$prod->id);
+ 								  $this->updatebank($value['p_key']);
+                              }                             
                            
                            }
                               else
