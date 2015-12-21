@@ -657,7 +657,7 @@ class TmpXmlController extends Controller
                               $group->client_bank_id=$value['bb_id'];
 //                              var_dump($group);
                                $rr=$group->save();
-                              echo "bid:".$value['b_id']."bbid:".$value['bb_id']."re:".$rr."<hr>";
+//                              echo "bid:".$value['b_id']."bbid:".$value['bb_id']."re:".$rr."<hr>";
                               
                                if($rr)
                                {
@@ -731,7 +731,7 @@ class TmpXmlController extends Controller
                             $info[]='Создано новых накладных:'.$i;
                             $info[]='Отредактикровано счетов:'.$jj;
                             $info[]='Отредактикровано накладных:'.$ii;
-                            $info['doc']=$resdoc;
+//                            $info['doc']=$resdoc;
        }
        private function updateprop($client,$clid)
 	   {

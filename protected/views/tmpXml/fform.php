@@ -4,7 +4,7 @@
 /* @var $form CActiveForm */
 
 $this->menu=array(
-	array('label'=>'Повторить', 'url'=>array('xml')),
+	array('label'=>'Загрузка', 'url'=>array('xml')),
 //	array('label'=>'Загрузить', 'url'=>array('cxml')),
 	array('label'=>'Загрузка файла', 'url'=>array('admin')),
 );
