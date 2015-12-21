@@ -95,9 +95,7 @@ $this->widget('zii.widgets.jui.CJuiDatePicker', array(
 <?php echo CHtml::hiddenField('checks');  ?>
 
 <?php echo CHtml::submitButton('Отбор'); // submit button ?> 
-<?php // $this->endWidget(); 
-echo "perm:".$this->permit;
-?>
+
 <!--<p>
 Для отбора значений можно использовать символы сравнения (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
 or <b>=</b>) в начале каждого значения чтобы определить отбор, который вы хотите использовать.

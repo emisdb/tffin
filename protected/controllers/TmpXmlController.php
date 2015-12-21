@@ -156,8 +156,6 @@ class TmpXmlController extends Controller
             $db=1;
             if($result)
             {
-//                var_dump($result);
-//                return;
             foreach ($result as $key => $value) { 
                switch ($key)  {
                     case 'xFir':
@@ -624,6 +622,7 @@ class TmpXmlController extends Controller
        */      
                          if(!(($value['c_id']==null)&&($value['d_id']==null)))  
                          {
+                             
                              $id=(int)$value['expid'];  //счет найден - имеется уже в базе данных - редакция
                              $fid=$docs[$value['id']];
                              if($fid==null)
@@ -638,6 +637,7 @@ class TmpXmlController extends Controller
        * найденной если $id>0
        * новой в обратном случае
        */      
+                             
                            if($id>0)  
                              {
                                  $group=Exp::model()->findByPk($id);
@@ -652,9 +652,14 @@ class TmpXmlController extends Controller
                                $group->account_id=$value['m_id'];
                                $group->amount=$value['bsum'];
                                $group->date=$value['ddat'];
+                               $group->currency_id=1;
                                $group->dep_bank_id=$value['b_id'];
                               $group->client_bank_id=$value['bb_id'];
-                               if($group->save())
+//                              var_dump($group);
+                               $rr=$group->save();
+                              echo "bid:".$value['b_id']."bbid:".$value['bb_id']."re:".$rr."<hr>";
+                              
+                               if($rr)
                                {
                                    if($id>0)  {
                                        $jj++;
@@ -1151,16 +1156,71 @@ class TmpXmlController extends Controller
                 }
                 else
                 {
-                        $thefile=Yii::app()->params['load_xml'];
-                         $ii=$this->readsimple($thefile);
+                     $id=Yii::app()->user->uid;
+                    $fileid=Yii::app()->params['load_xml_id'];
+                    $pathfrom=Yii::app()->params['load_xml_fdir'].$fileid."_".$id.".xml";
+                    $pathto=Yii::app()->params['load_xml_tdir'].$fileid."_".$id.".xml";
+                     if (!copy($pathfrom, $pathto))
+                     {
+                       $res=array("не удалось скопировать $pathfrom");
+                               $this->render('result',array(
+                                     'model'=>$res,
+                             ));
+                               return;
+                     }
+                     else
+                     {
+                                  $ii=$this->readsimple($pathto);
+                                 $model=new TmpXml('search');
+                                 $doc=new TmpDoc('search');
+                                 $this->render('admin',array(
+                                         'model'=>$model,'doc'=>$doc,'rr'=>$ii
+                                 ));
+                       }
+                     }
+                }
+    
+        public function actionRun()
+	{
+ 		$modelff=new FileForm;
+		if(isset($_POST['TmpXml']))
+                {
+                     $model=$_POST['TmpXml'];
+                     $res=$this->writesimple($model);
+                      $this->render('result',array(
+                            'model'=>$res,
+                    ));
+                }
+                else
+                {
+                    if(isset($_POST['FileForm']))
+                    {
+                        $modelff->attributes=$_POST['FileForm'];
+                        $modelff->image = CUploadedFile::getInstance($modelff, 'image');
+                        if (is_object($modelff->image)) {          
+ //                             $path=Yii::app()->params['load_xml'];
+                               $path='docs/go.xml';
+                               $modelff->image->saveAs($path);
+                        }  
+                      $thefile=Yii::app()->params['load_xml'];
+                          
+                        $ii=$this->readsimple($thefile);
                         $model=new TmpXml('search');
                         $doc=new TmpDoc('search');
                         $this->render('admin',array(
                                 'model'=>$model,'doc'=>$doc,'rr'=>$ii
                         ));
                      }
+                   else
+                   {
+                         $this->render('fform',array(
+                                'ff'=>$modelff,
+                        ));
+                    
+                   }
+                  
                 }
-    
+  	}
         public function actionAdmin()
 	{
  		$modelff=new FileForm;

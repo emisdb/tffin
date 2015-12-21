@@ -6,7 +6,7 @@
 $this->menu=array(
 	array('label'=>'Повторить', 'url'=>array('xml')),
 //	array('label'=>'Загрузить', 'url'=>array('cxml')),
-	array('label'=>'Загрузка', 'url'=>array('admin')),
+	array('label'=>'Загрузка файла', 'url'=>array('admin')),
 );
 ?>
 
