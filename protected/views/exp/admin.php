@@ -5,12 +5,13 @@
 $this->breadcrumbs=array(
 	'Счета',
 );
-
-//$this->menu=array(
+ if($this->permit>2){ 
+$this->menu=array(
 ////	array('label'=>'Список расходов', 'url'=>array('index')),
 //	array('label'=>'Создать расход', 'url'=>array('create'),'linkOptions'=>array('target'=>'_blank'),),
-//	array('label'=>'Записать задания',  'url'=>'javascript:void(0);' , 'linkOptions'=>array('onclick'=>'dosavepay()'),),
-//);
+	array('label'=>'Удалить записи',  'url'=>'javascript:void(0);' , 'linkOptions'=>array('onclick'=>'deleterecords()'),),
+);
+ }
 ?>
 
 <?php
@@ -232,6 +233,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
                         		array(
 			'class'=>'CCheckBoxColumn',
 			'visible'=>(($this->permit>2)?true:false),
+           'id' => 'exp-checked'
                                             ),
 
 

@@ -59,10 +59,16 @@
         else sbstr="Отгрузки";
 	$(distr).dialog("option","title",""+sbstr+" по счету №"+id[0]); 
  }
+   function deleterecords()
+   {
+       var seldvals=$.fn.yiiGridView.getChecked("exp-grid","exp-checked");
+       var selrows=$.fn.yiiGridView.getSelection('exp-grid');
+       alert("got it");
+       
+   }
    function dosavepay()
  {
 
-	var i,j;
 	var str=arr[0].valueOf();
 	str=str+"&"+arr[1].valueOf();
 	if(str.length>1) 
