@@ -428,10 +428,14 @@ class ExpController extends Controller
 	{
 		$arr=array();
 		$arr= json_decode($ids);
-	    $ids = implode(",",$arr);
-               $connection=Yii::app()->db;
-                 $command=$connection->createCommand("DELETE FROM `exp` where id in (".$ids.")");
-                 return $command->execute();
+		$oper=$arr[0];
+		$ids = implode(",",$arr[1]);
+		$connection=Yii::app()->db;
+		if($oper==1)
+		   $command=$connection->createCommand("DELETE FROM `exp` where id in (".$ids.")");
+		else
+		   $command=$connection->createCommand("UPDATE `exp` SET `pub`=0 where id in (".$ids.")");
+		   return $command->execute();
 	}
 	private function savechecks($ids)
 	{

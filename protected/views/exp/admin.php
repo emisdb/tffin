@@ -9,7 +9,8 @@ $this->breadcrumbs=array(
 $this->menu=array(
 ////	array('label'=>'Список расходов', 'url'=>array('index')),
 //	array('label'=>'Создать расход', 'url'=>array('create'),'linkOptions'=>array('target'=>'_blank'),),
-	array('label'=>'Удалить записи',  'url'=>'javascript:void(0);' , 'linkOptions'=>array('onclick'=>'deleterecords()'),),
+	array('label'=>'Архивировать записи',  'url'=>'javascript:void(0);' , 'linkOptions'=>array('onclick'=>'deleterecords(0)'),),
+	array('label'=>'Удалить записи',  'url'=>'javascript:void(0);' , 'linkOptions'=>array('onclick'=>'deleterecords(1)'),),
 );
  }
 ?>

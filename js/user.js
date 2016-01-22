@@ -59,7 +59,7 @@
         else sbstr="Отгрузки";
 	$(distr).dialog("option","title",""+sbstr+" по счету №"+id[0]); 
  }
-   function deleterecords()
+   function deleterecords(id)
    {
        var seldvals=$.fn.yiiGridView.getChecked("exp-grid","exp-checked");
        var ids=Array();
@@ -69,11 +69,21 @@
         if(document.getElementById("invid" + item)) {rr=rr+2;}
         if(rr>0)  ids.push(rr);
         });
+        if(seldvals.length==0) return;
         var str="";
-        if(ids.length>0) str="Для "+ids.length+" записей имеются платежи или отгрузки.\n";
-            if(!confirm("Предпринимается попытка удалить "+seldvals.length+" записей"+"\n"+str+" Продолжить?")) return;
+        var stra="удалить";
+        if(id==0){
+            rr=seldvals.length-ids.length
+            stra="архивировать";
+          if(rr>0) str="Для "+rr+" записей нет ни платежей ни отгрузок.\n";
+       }
+        else
+        {
+         if(ids.length>0) str="Для "+ids.length+" записей имеются платежи или отгрузки.\n";          
+        }
+             if(!confirm("Предпринимается попытка "+stra+" "+seldvals.length+" записей"+"\n"+str+" Продолжить?")) return;
 //        alert(JSON.stringify(seldvals));
-     	document.forms['date-form'].elements['checks'].value=JSON.stringify(seldvals);
+    	document.forms['date-form'].elements['checks'].value=JSON.stringify([id,seldvals]);
 	document.forms["date-form"].submit();
 //   
    }

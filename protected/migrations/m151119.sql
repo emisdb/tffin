@@ -47,6 +47,7 @@ CREATE TABLE IF NOT EXISTS `bank_prop` (
 
 ALTER TABLE  `exp` ADD  `dep_bank_id` INT( 11 ) NULL , ADD INDEX (  `dep_bank_id` ) ;
 ALTER TABLE  `exp` ADD FOREIGN KEY (  `dep_bank_id` ) REFERENCES  `tffin`.`bank` (`id`) ON DELETE SET NULL ON UPDATE SET NULL ;
+ALTER TABLE  `exp` ADD  `client_bank_id` INT( 11 ) NULL , ADD INDEX (  `client_bank_id` ) ;
 ALTER TABLE  `exp` ADD FOREIGN KEY (  `client_bank_id` ) REFERENCES  `tffin`.`bank` (`id`) ON DELETE NO ACTION ON UPDATE SET NULL ;
 ALTER TABLE  `bank` ADD INDEX (  `longname` ) ;
 ALTER TABLE  `tmp_doc` ADD  `dbank` VARCHAR( 15 ) NULL , ADD  `cbank` VARCHAR( 15 ) NULL ;
