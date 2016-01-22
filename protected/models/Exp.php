@@ -251,7 +251,7 @@ public function doPay()
 //         $str=  print_r($data->invDate,true);
 //         return $str;
 //      	$str="<div id='payid".$data->id."' class='pay".$data->pay."'>".$data->invSum."</div>";
-      	$str="<div id='payid".$data->id."'><span class='invc'>".$data->invCount."</span>";
+      	$str="<div id='invid".$data->id."'><span class='invc'>".$data->invCount."</span>";
      	$str.="<span class='invd'>".Yii::app()->dateFormatter->formatDateTime($data->invDate->date, 'short', null)."</span>";
         $str.="</div>";
         $link=CHtml::ajaxLink(

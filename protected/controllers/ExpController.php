@@ -349,7 +349,8 @@ class ExpController extends Controller
 			$model->state_pay = $_POST['Exp']['exp_all'];
 			if(isset($_POST['checks']))
 			{
-				$this->savechecks($_POST['checks']);
+				if(strlen($_POST['checks'])>0)
+				$this->delchecks($_POST['checks']);
 			}
 		}
 
@@ -423,6 +424,15 @@ class ExpController extends Controller
 		));
 	}
 
+	private function delchecks($ids)
+	{
+		$arr=array();
+		$arr= json_decode($ids);
+	    $ids = implode(",",$arr);
+               $connection=Yii::app()->db;
+                 $command=$connection->createCommand("DELETE FROM `exp` where id in (".$ids.")");
+                 return $command->execute();
+	}
 	private function savechecks($ids)
 	{
 		if(!(strlen($ids)>0)) return -1;

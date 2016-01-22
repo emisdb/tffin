@@ -62,9 +62,20 @@
    function deleterecords()
    {
        var seldvals=$.fn.yiiGridView.getChecked("exp-grid","exp-checked");
-       var selrows=$.fn.yiiGridView.getSelection('exp-grid');
-       alert("got it");
-       
+       var ids=Array();
+    seldvals.forEach(function(item, i) {
+        var rr=0;
+      if(document.getElementById("payid" + item)) {rr=1;}
+        if(document.getElementById("invid" + item)) {rr=rr+2;}
+        if(rr>0)  ids.push(rr);
+        });
+        var str="";
+        if(ids.length>0) str="Для "+ids.length+" записей имеются платежи или отгрузки.\n";
+            if(!confirm("Предпринимается попытка удалить "+seldvals.length+" записей"+"\n"+str+" Продолжить?")) return;
+//        alert(JSON.stringify(seldvals));
+     	document.forms['date-form'].elements['checks'].value=JSON.stringify(seldvals);
+	document.forms["date-form"].submit();
+//   
    }
    function dosavepay()
  {
