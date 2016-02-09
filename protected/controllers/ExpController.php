@@ -498,8 +498,8 @@ class ExpController extends Controller
                         . "<th>Колич.</th>"
                         . "<th>Цена</th>"
                         . "<th>Сумма</th>"
-                        . "<th>Со скид.</th>"
-                        . "<th>%</th>"
+                         . "<th>%</th>"
+                       . "<th>Со скид.</th>"
                         . "<th>НДС</th>"
                         . "<th>Всего</th></tr>";
 		$resa=0;
@@ -512,12 +512,12 @@ class ExpController extends Controller
  	$ret.="<td style='text-align:right;'>".Yii::app()->numberFormatter->formatCurrency($row['amount'], '')."</td>\n"; 
 	$ret.="<td style='text-align:right;'>".Yii::app()->numberFormatter->formatCurrency($row['price'], '')."</td>\n"; 
 	$ret.="<td style='text-align:right;'>".Yii::app()->numberFormatter->formatCurrency($sumka, '')."</td>\n";
-	$ret.="<td style='text-align:right;'>".Yii::app()->numberFormatter->formatCurrency($row['total'], '')."</td>\n"; 
         if($sumka==$row['total'])
             $rate=0;
         else
             $rate=($sumka-$row['total'])/$sumka;            
 	$ret.="<td style='text-align:right;'>".Yii::app()->numberFormatter->formatPercentage($rate, '')."</td>\n"; 
+	$ret.="<td style='text-align:right;'>".Yii::app()->numberFormatter->formatCurrency($row['total'], '')."</td>\n"; 
 	$ret.="<td style='text-align:right;'>".Yii::app()->numberFormatter->formatCurrency($row['vat'], '')."</td>\n"; 
 	$ret.="<td style='text-align:right;'>".Yii::app()->numberFormatter->formatCurrency($row['total']+$row['vat'], '')."</td></tr>\n"; 
 	$resa+=$sumka;
