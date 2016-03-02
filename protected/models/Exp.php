@@ -446,9 +446,9 @@ private function paystate($criteria)
         " WHERE (".$this->Makewhere('exp').") GROUP BY client_id, client.name".
 	"  UNION ALL SELECT client_id, client.name  AS cliname, 0 AS expsum, SUM(pay.amount) AS paysum, 0 AS invsum ".
         " FROM pay INNER JOIN (exp INNER JOIN client ON exp.client_id=client.id) ON pay.exp_id=exp.id WHERE (".$this->Makewhere('pay').")".
-	"  GROUP BY client_id, client.name  UNION ALL SELECT client_id, client.name  AS cliname, 0 AS expsum, 0 AS paysum, SUM(inv.amount) AS invsum ".
+	"  GROUP BY client_id, client.name  UNION ALL SELECT exp.client_id AS client_id, client.name  AS cliname, 0 AS expsum, 0 AS paysum, SUM(inv.amount) AS invsum ".
         " FROM inv INNER JOIN (exp INNER JOIN client ON exp.client_id=client.id) ON inv.exp_id=exp.id WHERE (".$this->Makewhere('inv').")"
-        . " GROUP BY client_id, client.name) AS exppay GROUP BY client_id, cliname ORDER BY cliname";
+        . " GROUP BY exp.client_id, client.name) AS exppay GROUP BY client_id, cliname ORDER BY cliname";
 	$dataReader=Yii::app()->db->createCommand($qry)->query();
 	$cols=array(); $num=0;$pos=array();
 	return $dataReader;
