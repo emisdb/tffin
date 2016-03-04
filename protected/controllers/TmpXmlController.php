@@ -397,12 +397,22 @@ class TmpXmlController extends Controller
                        $model->dbank=(string)$value[0]->Acc;
                        $model->cbank=(string)$value[0]->cCAc;
                        $model->man=(int)$value[0]->Man;
-                        $model->ctype=0;
-                             $model->user=Yii::app()->user->uid;
+                       $model->ctype=0;
+                       $model->user=Yii::app()->user->uid;
                 if($model->save())  
                       {
                         $ii++;
                         $ords[$model->id]=array($model->tnum,$model->ddat);
+                     }
+                     if(isset($value[0]->Inf))
+                     {
+                        $modelx=new TmpXml;
+                        $modelx->ckey=$model->id;
+                        $modelx->cname=(string)$value[0]->Inf;
+                        $modelx->ctype=14;
+                          $modelx->user=Yii::app()->user->uid;
+                         if($modelx->save()) $ii++;
+                     
                      }
                   break;
                 case 'xInvT':
@@ -670,6 +680,31 @@ class TmpXmlController extends Controller
                                     $j++;
                                    }
                                    $this->updatedocstr($value['id'], $group->id, 0);
+                                   $xmlcomment=TmpXml::model()->findByAttributes(array('ckey'=>$value['id']),'ctype=14');
+                                   $comment=Comment::model()->findByPk(array('id'=>$group->id,'id_type'=>'1'));
+                                   if(is_null($xmlcomment))
+                                   {
+                                      if(!is_null($comment)) $comment->delete();
+                                      
+                                   }
+                                   else
+                                   {
+                                       if(!is_null($comment)){
+                                          $comment->content=$xmlcomment->cname;
+                                          $comment->create_user_id=$group->users_id;
+                                        } else
+                                           {
+                                           $comment= new Comment();
+                                           $comment->id=$group->id;
+                                           $comment->id_type=1;
+                                          $comment->content=$xmlcomment->cname;
+                                          $comment->create_user_id=$group->users_id;
+                                           
+                                       }
+                                        $comment->save ();
+                                     
+                                   }
+ 
 
                           }
                        }
