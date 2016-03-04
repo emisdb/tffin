@@ -151,6 +151,7 @@ class Exp extends CActiveRecord
                    'dbank' => array(self::BELONGS_TO, 'Bank', 'dep_bank_id'),
                    'cbank' => array(self::BELONGS_TO, 'Bank', 'client_bank_id'),
                     'expd' => array(self::HAS_MANY, 'Expd', 'exp'),
+                    'comment' => array(self::HAS_ONE, 'Comment', 'id','on'=>'id_type=1'),
                     'department' => array(self::BELONGS_TO, 'Department', 'department_id'),
                     'users' => array(self::BELONGS_TO, 'Users', 'users_id'),
                     'currency' => array(self::BELONGS_TO, 'Currency', 'currency_id'),
@@ -462,7 +463,8 @@ private function paystate($criteria)
 		$criteria=new CDbCriteria;
                  
                 // where
-                $criteria->with = array('currency','client','client.country','department','users','invDate');
+                $criteria->with = array('currency','client','client.country','department','users','invDate','comment');
+//                $criteria->with = array('currency','client','client.country','department','users','invDate');
 
 		$criteria->compare('id',$this->id);
 //		$criteria->compare('pub',$this->pub);

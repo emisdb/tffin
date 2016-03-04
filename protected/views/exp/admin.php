@@ -167,7 +167,14 @@ $this->widget('zii.widgets.grid.CGridView', array(
                         'footer'=>'Итого:',
 			),
 
-                'cliname',
+                            array(
+					'name'=>'cliname',
+					'type'=>'raw',
+//					'header'=>'Опл.',
+//					'value'=>"(is_null(\$data->comment)? \$data->cliname : CHtml::link(\$data->cliname,'js:\$data->id')",
+					'value'=>"(is_null(\$data->comment)) ? \$data->cliname : CHtml::link(\$data->cliname,'js:_id='.\$data->id.';')",
+								 ),
+ /*               'cliname',*/
 		'depname',
                              array(
 					'name'=>'amount',
