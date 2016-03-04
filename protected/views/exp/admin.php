@@ -172,7 +172,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
 					'type'=>'raw',
 //					'header'=>'Опл.',
 //					'value'=>"(is_null(\$data->comment)? \$data->cliname : CHtml::link(\$data->cliname,'js:\$data->id')",
-					'value'=>"(is_null(\$data->comment)) ? \$data->cliname : CHtml::link(\$data->cliname,'js:_id='.\$data->id.';')",
+					'value'=>"(is_null(\$data->comment)) ? \$data->cliname : CHtml::link(\$data->cliname,'js:_id='.\$data->id.';',array('onclick'=>'docomment('.\$data->id.')'))",
 								 ),
  /*               'cliname',*/
 		'depname',

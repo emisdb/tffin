@@ -98,7 +98,10 @@
 		document.forms["date-form"].submit();
 	}
  }
-
+function docomment(id)
+{
+    alert(id);
+}
 $(document).ready(function()
  {
 	arr[0]=new Array();
