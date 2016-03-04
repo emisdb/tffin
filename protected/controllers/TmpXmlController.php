@@ -687,7 +687,7 @@ class TmpXmlController extends Controller
                                       if(!is_null($comment)) $comment->delete();
                                       
                                    }
-                                   else
+                                   else 
                                    {
                                        if(!is_null($comment)){
                                           $comment->content=$xmlcomment->cname;
