@@ -98,9 +98,11 @@
 		document.forms["date-form"].submit();
 	}
  }
-function docomment(id)
+function docomment(id,txt)
 {
-    alert(id);
+    $("#accountsdialog").dialog("option","title","Комментарий по счету №"+id); 
+    $("#pay_table").text(txt); 
+    $("#accountsdialog").dialog("open");
 }
 $(document).ready(function()
  {
