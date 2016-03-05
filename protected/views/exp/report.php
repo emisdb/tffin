@@ -20,7 +20,8 @@ $this->breadcrumbs=array(
     'enableAjaxValidation'=>true,
 )); ?>
  	<div class="row">
-
+<?php 		echo $form->dropDownList($model,'report_type', $model->getReportOptions());
+?>
 <b>С :</b>
 <?php
 $this->widget('zii.widgets.jui.CJuiDatePicker', array(

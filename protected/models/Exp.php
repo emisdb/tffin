@@ -33,9 +33,16 @@
  */
 class Exp extends CActiveRecord
 {
+	
+	const REPORT_ALL=0;
+	const REPORT_EXP=1;
+	const REPORT_PAY=2;
+	const REPORT_INV=3;
+
 	public $from_date;
 	public $to_date;
 	public $state_pay;
+	public $report_type;
 	public $state_cur=false;
 	public $arr_cur=array();
 	private $null_dg;
@@ -46,6 +53,16 @@ class Exp extends CActiveRecord
 	private $_use = null;
 	private $_cou = null;
 	private $mutex =false;
+	
+		public function getReportOptions()
+	{
+		return array(
+	 self::REPORT_ALL=>'по датам документов',
+	 self::REPORT_EXP=>'по датам счетов',
+	 self::REPORT_PAY=>'по датам оплат',
+	 self::REPORT_INV=>'по датам отгрузок',
+		);
+	}
 	public function getUsername(){
 		if ($this->_use === null && $this->users !== null)
 		{
@@ -137,7 +154,7 @@ class Exp extends CActiveRecord
 			array('link', 'length', 'max'=>128),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, curname,country, cliname, depname,username, name, client_id, account_id, department_id, users_id, currency_id, amount, dateinserted, date, pay, state_pay, link, from_date, paySum,invSum, to_date, pub, transport', 'safe', 'on'=>'search'),
+			array('id, curname,country, cliname, depname,username, name, client_id, account_id, department_id, users_id, currency_id, amount, dateinserted, date, pay, state_pay, report_type, link, from_date, paySum,invSum, to_date, pub, transport', 'safe', 'on'=>'search'),
 		);
 	}
 	public function relations()
@@ -489,7 +506,7 @@ private function paystate($criteria)
                    if($this->state_pay<5)
                    {
                         $criteria->compare('pub',1);
-        		$this->paystate($criteria);
+						$this->paystate($criteria);
                    }
                  }
                 else

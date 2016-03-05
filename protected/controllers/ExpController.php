@@ -415,6 +415,9 @@ class ExpController extends Controller
 				case 'state_cur':
 					$model->state_cur = $row;
 					break;
+				case 'report_type':
+					$model->report_type = $row;
+					break;
 				}
 			}
  		}
