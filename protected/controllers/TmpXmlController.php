@@ -570,7 +570,35 @@ class TmpXmlController extends Controller
 
         /* 
        * добавляем строки счета
-       */      	private function updatedocstr($iid,$rid,$ty)
+       */  
+		private function updatecomment($vid,$id)
+		{
+                                   $xmlcomment=TmpXml::model()->findByAttributes(array('ckey'=>$vid),'ctype=14');
+                                   $comment=Comment::model()->findByPk(array('id'=>$id,'id_type'=>'1'));
+                                   if(is_null($xmlcomment))
+                                   {
+                                      if(!is_null($comment)) $comment->delete();
+                                      
+                                   }
+                                   else 
+                                   {
+                                       if(!is_null($comment)){
+                                          $comment->content=$xmlcomment->cname;
+                                          $comment->create_user_id=Yii::app()->user->uid;
+                                        } else
+                                           {
+                                           $comment= new Comment();
+                                           $comment->id=$id;
+                                           $comment->id_type=1;
+                                          $comment->content=$xmlcomment->cname;
+                                          $comment->create_user_id=Yii::app()->user->uid;
+                                           
+                                       }
+                                        $comment->save ();
+                                     
+                                   }		
+		}
+		private function updatedocstr($iid,$rid,$ty)
         {
 
                                $sql="SELECT a.* , p.id AS p_id "
@@ -680,30 +708,7 @@ class TmpXmlController extends Controller
                                     $j++;
                                    }
                                    $this->updatedocstr($value['id'], $group->id, 0);
-                                   $xmlcomment=TmpXml::model()->findByAttributes(array('ckey'=>$value['id']),'ctype=14');
-                                   $comment=Comment::model()->findByPk(array('id'=>$group->id,'id_type'=>'1'));
-                                   if(is_null($xmlcomment))
-                                   {
-                                      if(!is_null($comment)) $comment->delete();
-                                      
-                                   }
-                                   else 
-                                   {
-                                       if(!is_null($comment)){
-                                          $comment->content=$xmlcomment->cname;
-                                          $comment->create_user_id=$group->users_id;
-                                        } else
-                                           {
-                                           $comment= new Comment();
-                                           $comment->id=$group->id;
-                                           $comment->id_type=1;
-                                          $comment->content=$xmlcomment->cname;
-                                          $comment->create_user_id=$group->users_id;
-                                           
-                                       }
-                                        $comment->save ();
-                                     
-                                   }
+                                   $this->updatecomment($value['id'], $group->id);
  
 
                           }
@@ -1195,6 +1200,8 @@ class TmpXmlController extends Controller
                     $fileid=Yii::app()->params['load_xml_id'];
                     $pathfrom=Yii::app()->params['load_xml_fdir'].$fileid."_".$id.".xml";
                     $pathto=Yii::app()->params['load_xml_tdir'].$fileid."_".$id.".xml";
+					if(file_exists($pathfrom))
+					{
                      if (!copy($pathfrom, $pathto))
                      {
                        $res=array("не удалось скопировать $pathfrom");
@@ -1203,7 +1210,8 @@ class TmpXmlController extends Controller
                              ));
                                return;
                      }
-                     else
+					}
+                     if(file_exists($pathto))
                      {
                                   $ii=$this->readsimple($pathto);
                                  $model=new TmpXml('search');
