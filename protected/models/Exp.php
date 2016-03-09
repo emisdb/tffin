@@ -209,7 +209,12 @@ class Exp extends CActiveRecord
 			'state_cur' => 'По всем валютам',
 		);
 	}
-	
+		protected function afterDelete()
+	{
+		parent::afterDelete();
+		Comment::model()->deleteAll('id='.$this->id.' AND id_type=1');
+	}
+
 protected function beforeSave()
 {
     if(parent::beforeSave())
