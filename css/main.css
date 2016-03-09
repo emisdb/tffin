@@ -371,7 +371,11 @@ div.search-form
 {
 	text-align:right;
 }
- .bigtable
+ .bigtable td.seltd
+ {
+     background-color: #6DFFF5;
+ }
+.bigtable
  {
         font-size: 0.9em;
         color:#000;

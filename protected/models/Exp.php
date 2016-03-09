@@ -458,6 +458,8 @@ private function paystate($criteria)
 	}
 	public function report()
 	{
+		if($this->report_type==0)
+		{
 	$qry="SELECT client_id, cliname, SUM(exppay.expsum) AS expsum, SUM(exppay.paysum) AS paysum, SUM(exppay.invsum) AS invsum FROM ".
         " (SELECT client_id, client.name  AS cliname, SUM(exp.amount) AS expsum, 0 AS paysum, 0 AS invsum ".
         " FROM exp INNER JOIN client ON exp.client_id=client.id".
@@ -467,6 +469,32 @@ private function paystate($criteria)
 	"  GROUP BY client_id, client.name  UNION ALL SELECT exp.client_id AS client_id, client.name  AS cliname, 0 AS expsum, 0 AS paysum, SUM(inv.amount) AS invsum ".
         " FROM inv INNER JOIN (exp INNER JOIN client ON exp.client_id=client.id) ON inv.exp_id=exp.id WHERE (".$this->Makewhere('inv').")"
         . " GROUP BY exp.client_id, client.name) AS exppay GROUP BY client_id, cliname ORDER BY cliname";
+		}
+		elseif($this->report_type==1)
+		{
+		$qry="SELECT exp.client_id, client.name  AS cliname, SUM(exp.amount) AS expsum, SUM(paysum) AS paysum, SUM(invsum) AS invsum FROM ".
+		"((exp INNER JOIN client ON exp.client_id=client.id)".
+		" LEFT JOIN (SELECT pay.exp_id, SUM(pay.amount) AS paysum FROM pay GROUP BY pay.exp_id) pay ON pay.exp_id=exp.id)".
+		" LEFT JOIN (SELECT inv.exp_id, SUM(inv.amount) AS invsum FROM inv GROUP BY inv.exp_id) inv ON inv.exp_id=exp.id ".
+		" WHERE ".$this->Makewhere('exp')." GROUP BY exp.client_id, client.name ORDER BY client.name";
+		}
+		elseif($this->report_type==2)
+		{
+		$qry="SELECT exp.client_id, client.name  AS cliname, SUM(exp.amount) AS expsum, SUM(paysum) AS paysum, SUM(invsum) AS invsum FROM ".
+		"(((SELECT pay.exp_id, SUM(pay.amount) AS paysum FROM pay  WHERE ".$this->Makewhere('pay')." GROUP BY pay.exp_id) pay INNER JOIN exp ON pay.exp_id=exp.id) ".
+		" INNER JOIN client ON exp.client_id=client.id)".
+		" LEFT JOIN (SELECT inv.exp_id, SUM(inv.amount) AS invsum FROM inv GROUP BY inv.exp_id) inv ON inv.exp_id=exp.id ".
+		" GROUP BY exp.client_id, client.name ORDER BY client.name";
+		}
+		elseif($this->report_type==3)
+		{
+		$qry="SELECT exp.client_id, client.name  AS cliname, SUM(exp.amount) AS expsum, SUM(paysum) AS paysum, SUM(invsum) AS invsum FROM ".
+		"(((SELECT inv.exp_id, SUM(inv.amount) AS invsum FROM inv  WHERE ".$this->Makewhere('inv')." GROUP BY inv.exp_id ) inv INNER JOIN exp ON inv.exp_id=exp.id) ".
+		" INNER JOIN client ON exp.client_id=client.id)".
+		" LEFT JOIN (SELECT pay.exp_id, SUM(pay.amount) AS paysum FROM pay GROUP BY pay.exp_id) pay ON pay.exp_id=exp.id".
+		" GROUP BY exp.client_id, client.name ORDER BY client.name";
+		}
+		
 	$dataReader=Yii::app()->db->createCommand($qry)->query();
 	$cols=array(); $num=0;$pos=array();
 	return $dataReader;

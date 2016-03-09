@@ -103,9 +103,9 @@ $rows=$model->report();
                     $invsum+=$row['invsum'];
 		echo "<tr><td>".++$inti."</td>";
 		echo "<td>".$row['cliname']."</td>";
-		echo "<td>".Yii::app()->numberFormatter->formatCurrency($row['expsum'], '')."</td>";
-		echo "<td>".Yii::app()->numberFormatter->formatCurrency($row['paysum'], '')."</td>";
-		echo "<td>".Yii::app()->numberFormatter->formatCurrency($row['invsum'], '')."</td></tr>";
+		echo "<td".($model->report_type==1 ? " class='seltd'" : '').">".Yii::app()->numberFormatter->formatCurrency($row['expsum'], '')."</td>";
+		echo "<td".($model->report_type==2 ? " class='seltd'" : '').">".Yii::app()->numberFormatter->formatCurrency($row['paysum'], '')."</td>";
+		echo "<td".($model->report_type==3 ? " class='seltd'" : '').">".Yii::app()->numberFormatter->formatCurrency($row['invsum'], '')."</td></tr>";
  	}
 		echo "<tr><th colspan='2'>Итог:</th>";
 		echo "<th class='summary'>".Yii::app()->numberFormatter->formatCurrency($expsum,'')."</th>";
