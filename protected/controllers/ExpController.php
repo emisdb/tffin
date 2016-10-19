@@ -625,10 +625,11 @@ class ExpController extends Controller
 	$ret.="<td>".Yii::app()->dateFormatter->formatDateTime($row['date_g'], 'short', null)."</td>\n";
 //	$ret.="<td>".$row->account['name']."</td>\n"; 
 //	$ret.="<td style='text-align:right;'>".Yii::app()->numberFormatter->formatCurrency($row['amount'], '')."</td></tr>\n"; 
-         if( Yii::app()->Controller->permit>2)
-            $ret.="<td style='text-align:right;'>".CHtml::link(Yii::app()->numberFormatter->formatCurrency($row['amount'], ''),array('pay/update','id'=>$row['id']),array('target'=>'_blank'))."</td></tr>";
-         else
-           $ret.="<td style='text-align:right;'>".Yii::app()->numberFormatter->formatCurrency($row['amount'], '')."</td></tr>";
+//         if( Yii::app()->Controller->permit>2)
+            $ret.="<td style='text-align:right;'>".CHtml::link(Yii::app()->numberFormatter->formatCurrency($row['amount'], ''),array('pay/update','id'=>$row['id'],'ret'=>1))."</td></tr>";
+//            $ret.="<td style='text-align:right;'>".CHtml::link(Yii::app()->numberFormatter->formatCurrency($row['amount'], ''),array('pay/update','id'=>$row['id']),array('target'=>'_blank'))."</td></tr>";
+//         else
+//           $ret.="<td style='text-align:right;'>".Yii::app()->numberFormatter->formatCurrency($row['amount'], '')."</td></tr>";
 	$res+=$row['amount'];
 	}
 	$ret.="<tr><td colspan='4'>Оплачено:</td><td style='font-weight: bold;text-align:right;'>".Yii::app()->numberFormatter->formatCurrency($res, '')."</td></tr>\n";

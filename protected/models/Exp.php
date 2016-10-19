@@ -296,10 +296,8 @@ public function doPay()
 }
  public function paysum($data, $row)
 {
- //     if (($data->pay==0)||($data->pay==3))
-//         $link='';
-     if( Yii::app()->Controller->permit>2)
-     {
+//     if( Yii::app()->Controller->permit>2)
+//     {
      $linkgo=CHtml::ajaxLink(
              "<span class='pay1'>___</span>",
              $url=array('pay/CreateID'),
@@ -308,14 +306,13 @@ public function doPay()
              'type'=>'POST',
              'update'=>'#paytable',
              'complete' => 'function() {$("#mydialog").dialog("open");}',	  
-         //						'complete' => 'function() {doshowpay(this);}'	  
-             'beforeSend' => 'doshowpay(this)'	        ),
+              'beforeSend' => 'doshowpay(this)'	        ),
              $htmlOptions=array('href'=>'js:_id='.$data->id.';_pay=200;',
 //                 'onclick'=>'dochangepay('.$data->id.','.$data->pay.')',
                  )
      );
-     }
-     else $linkgo='';
+//     }
+//     else $linkgo='';
      if($data->payCount>0)
     {
 //      	$str="<div id='payid".$data->id."' class='pay".$data->pay."'>".$data->invCount."</div>";

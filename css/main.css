@@ -72,6 +72,10 @@ color: #000;
 	margin-top:5px;
 	padding:5px 8px;
 }
+#mydialog
+{
+    background-color: #eee;
+}
 #mydialog_buts
 {
 	margin-bottom:5px;

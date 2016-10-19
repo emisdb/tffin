@@ -22,6 +22,7 @@ class Pay extends CActiveRecord
 	public $from_date;
 	public $to_date;
 	public $state_pay;
+	public $where_return;
 	private $null_dg;
 	private $_cur = null;
 	private $_cli = null;

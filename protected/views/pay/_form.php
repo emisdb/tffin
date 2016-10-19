@@ -43,6 +43,8 @@
 	
 			echo $form->error($model,'date'); ?>
 	</div>
+     <?php           if( Yii::app()->Controller->permit>2) { ?>
+
 	<div class="row">
 		<?php 
 			echo $form->labelEx($model,'date_g');  
@@ -66,8 +68,9 @@
 			echo $form->error($model,'date_g');	
  ?>
 	</div>
-
+     <?php } ?>
 	<div class="row buttons">
+		<?php echo $form->hiddenField($model,'where_return'); ?>
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Создать' : 'Сохранить'); ?>
 	</div>
 

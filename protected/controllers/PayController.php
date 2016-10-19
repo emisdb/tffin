@@ -171,9 +171,10 @@ class PayController extends Controller
 	 * If update is successful, the browser will be redirected to the 'view' page.
 	 * @param integer $id the ID of the model to be updated
 	 */
-	public function actionUpdate($id)
+	public function actionUpdate($id,$ret=0)
 	{
 		$model=$this->loadModel($id);
+                $model->where_return=$ret;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -184,7 +185,10 @@ class PayController extends Controller
                         $model->dg_null=$_POST['Pay']['dg_null'];
  			if($model->save())
                         {
-                          $this->redirect(array('admin','ret'=>1,'#'=>'p_'.$id));
+                            if($model->where_return==0)
+                               $this->redirect(array('admin','ret'=>1,'#'=>'p_'.$id));
+                           else 
+                               $this->redirect(array('exp/admin','ret'=>1,'#'=>'e_'.$model->exp_id));
                            
                         }
 		}
