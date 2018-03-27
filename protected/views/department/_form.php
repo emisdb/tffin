@@ -26,6 +26,7 @@
 		<?php echo $form->error($model,'depid'); ?>
 	</div>
 	<?php
+        if($props){
 	foreach ($props as $key => $value) {
 			echo  '<div class="row">';
 			echo CHtml::label($value->_key,$value->_key);
@@ -33,6 +34,7 @@
 			echo  '</div>';
 
 		}
+        }
 
 	?>
 

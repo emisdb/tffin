@@ -4,6 +4,7 @@
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'pay-form',
 	'enableAjaxValidation'=>false,
+        'htmlOptions'=>array('enctype'=>'multipart/form-data'),
 )); ?>
 
 	<p class="note">Поля с пометкой  <span class="required">*</span> обязательны.</p>
@@ -68,7 +69,19 @@
 			echo $form->error($model,'date_g');	
  ?>
 	</div>
+  
      <?php } ?>
+ 	<div class="row">
+       		<?php
+                    echo $form->labelEx($model,'doc',array('style'=>'margin-right:10px;'));
+                    echo $form->textField($model,'doc',array("disabled"=>"true")); 
+                    echo CHtml::link("Посмотреть", Yii::app()->request->baseUrl.'/docs/platez/'.$model->doc,array("target"=>"_blank","style"=>"margin:0px 5px;"));
+
+
+                echo $form->FileField($model,'doc');
+                    echo $form->error($model,'doc');
+                  ?>
+	</div>
 	<div class="row buttons">
 		<?php echo $form->hiddenField($model,'where_return'); ?>
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Создать' : 'Сохранить'); ?>
