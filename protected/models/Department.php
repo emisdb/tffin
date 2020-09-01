@@ -90,7 +90,19 @@ class Department extends CActiveRecord
 	 * @return CActiveDataProvider the data provider that can return the models
 	 * based on the search/filter conditions.
 	 */
-	public function search()
+	protected function afterSave()
+	{
+		parent::afterSave();
+	    if($this->depid) {
+  		$model=new DepartmentId;
+                $model->ckey=$this->depid;
+                $model->db=1;
+                $model->id=$this->id;
+                if(!$model->save())  ;
+               
+            }
+	}
+        public function search()
 	{
 		// @todo Please modify the following code to remove attributes that should not be searched.
 

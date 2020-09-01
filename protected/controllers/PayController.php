@@ -181,16 +181,30 @@ class PayController extends Controller
 
 		if(isset($_POST['Pay']))
 		{
+                       $doc_old = $model->doc;
 			$model->attributes=$_POST['Pay'];
                         $model->dg_null=$_POST['Pay']['dg_null'];
- 			if($model->save())
-                        {
-                            if($model->where_return==0)
-                               $this->redirect(array('admin','ret'=>1,'#'=>'p_'.$id));
-                           else 
-                               $this->redirect(array('exp/admin','ret'=>1,'#'=>'e_'.$model->exp_id));
-                           
-                        }
+                         $model->doc = CUploadedFile::getInstance($model,'doc');
+                        if($model->doc!=""){
+                           if((($doc_old!="")||($doc_old!=NULL)) && file_exists('docs/platez/'.$doc_old))
+                                    unlink('docs/platez/'.$doc_old);
+                                    $ext=pathinfo($model->doc, PATHINFO_EXTENSION);
+                                    $name_uniqid = uniqid().".".$ext;
+                                    if (is_object($model->doc)) { 
+					$path='docs/platez/'. $name_uniqid;
+					$model->doc->saveAs($path);
+ 					$model->doc=$name_uniqid;
+                                    }
+                                }
+                                if($model->save())
+                                    {
+                                        if($model->where_return==0)
+                                           $this->redirect(array('admin','ret'=>1,'#'=>'p_'.$id));
+                                       else 
+                                           $this->redirect(array('exp/admin','ret'=>1,'#'=>'e_'.$model->exp_id));
+
+                                    }
+
 		}
 
 		$this->render('update',array(

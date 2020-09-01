@@ -301,3 +301,313 @@ in D:\OpenServer\domains\localhost\tffin\index.php (13)
 2016/10/18 07:55:21 [warning] [application] Не удалось присвоить небезопасный атрибут "where_return" класса "Pay".
 in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
 in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/09 14:17:45 [error] [php] Invalid argument supplied for foreach() (D:\OpenServer\domains\localhost\tffin\protected\views\department\_form.php:29)
+Stack trace:
+#0 D:\OpenServer\domains\localhost\yii\framework\web\CController.php(869): DepartmentController->renderFile()
+#1 D:\OpenServer\domains\localhost\tffin\protected\views\department\create.php(19): DepartmentController->renderPartial()
+#2 D:\OpenServer\domains\localhost\yii\framework\web\CBaseController.php(126): require()
+#3 D:\OpenServer\domains\localhost\yii\framework\web\CBaseController.php(95): DepartmentController->renderInternal()
+#4 D:\OpenServer\domains\localhost\yii\framework\web\CController.php(869): DepartmentController->renderFile()
+#5 D:\OpenServer\domains\localhost\yii\framework\web\CController.php(782): DepartmentController->renderPartial()
+#6 D:\OpenServer\domains\localhost\tffin\protected\controllers\DepartmentController.php(79): DepartmentController->render()
+#7 D:\OpenServer\domains\localhost\yii\framework\web\actions\CInlineAction.php(49): DepartmentController->actionCreate()
+#8 D:\OpenServer\domains\localhost\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#9 D:\OpenServer\domains\localhost\yii\framework\web\filters\CFilterChain.php(133): DepartmentController->runAction()
+#10 D:\OpenServer\domains\localhost\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 D:\OpenServer\domains\localhost\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#12 D:\OpenServer\domains\localhost\yii\framework\web\filters\CInlineFilter.php(58): DepartmentController->filterAccessControl()
+#13 D:\OpenServer\domains\localhost\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#14 D:\OpenServer\domains\localhost\yii\framework\web\CController.php(291): CFilterChain->run()
+#15 D:\OpenServer\domains\localhost\yii\framework\web\CController.php(265): DepartmentController->runActionWithFilters()
+#16 D:\OpenServer\domains\localhost\yii\framework\web\CWebApplication.php(282): DepartmentController->run()
+#17 D:\OpenServer\domains\localhost\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#18 D:\OpenServer\domains\localhost\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#19 D:\OpenServer\domains\localhost\tffin\index.php(13): CWebApplication->run()
+REQUEST_URI=/tffin/index.php?r=department/create
+in D:\OpenServer\domains\localhost\tffin\protected\views\department\_form.php (29)
+in D:\OpenServer\domains\localhost\tffin\protected\views\department\create.php (19)
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\DepartmentController.php (79)
+2017/02/09 14:18:08 [error] [php] Invalid argument supplied for foreach() (D:\OpenServer\domains\localhost\tffin\protected\views\department\_form.php:29)
+Stack trace:
+#0 D:\OpenServer\domains\localhost\yii\framework\web\CController.php(869): DepartmentController->renderFile()
+#1 D:\OpenServer\domains\localhost\tffin\protected\views\department\create.php(19): DepartmentController->renderPartial()
+#2 D:\OpenServer\domains\localhost\yii\framework\web\CBaseController.php(126): require()
+#3 D:\OpenServer\domains\localhost\yii\framework\web\CBaseController.php(95): DepartmentController->renderInternal()
+#4 D:\OpenServer\domains\localhost\yii\framework\web\CController.php(869): DepartmentController->renderFile()
+#5 D:\OpenServer\domains\localhost\yii\framework\web\CController.php(782): DepartmentController->renderPartial()
+#6 D:\OpenServer\domains\localhost\tffin\protected\controllers\DepartmentController.php(79): DepartmentController->render()
+#7 D:\OpenServer\domains\localhost\yii\framework\web\actions\CInlineAction.php(49): DepartmentController->actionCreate()
+#8 D:\OpenServer\domains\localhost\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#9 D:\OpenServer\domains\localhost\yii\framework\web\filters\CFilterChain.php(133): DepartmentController->runAction()
+#10 D:\OpenServer\domains\localhost\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 D:\OpenServer\domains\localhost\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#12 D:\OpenServer\domains\localhost\yii\framework\web\filters\CInlineFilter.php(58): DepartmentController->filterAccessControl()
+#13 D:\OpenServer\domains\localhost\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#14 D:\OpenServer\domains\localhost\yii\framework\web\CController.php(291): CFilterChain->run()
+#15 D:\OpenServer\domains\localhost\yii\framework\web\CController.php(265): DepartmentController->runActionWithFilters()
+#16 D:\OpenServer\domains\localhost\yii\framework\web\CWebApplication.php(282): DepartmentController->run()
+#17 D:\OpenServer\domains\localhost\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#18 D:\OpenServer\domains\localhost\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#19 D:\OpenServer\domains\localhost\tffin\index.php(13): CWebApplication->run()
+REQUEST_URI=/tffin/index.php?r=department/create
+in D:\OpenServer\domains\localhost\tffin\protected\views\department\_form.php (29)
+in D:\OpenServer\domains\localhost\tffin\protected\views\department\create.php (19)
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\DepartmentController.php (79)
+2017/02/09 14:43:40 [warning] [application] Не удалось присвоить небезопасный атрибут "depid" класса "Department".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\DepartmentController.php (72)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/09 18:32:24 [warning] [application] Не удалось присвоить небезопасный атрибут "depid" класса "Department".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\DepartmentController.php (110)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/09 18:33:22 [warning] [application] Не удалось присвоить небезопасный атрибут "depid" класса "Department".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\DepartmentController.php (110)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/09 18:43:22 [warning] [application] Не удалось присвоить небезопасный атрибут "depid" класса "Department".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\DepartmentController.php (110)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/09 18:46:57 [warning] [application] Не удалось присвоить небезопасный атрибут "depid" класса "Department".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\DepartmentController.php (104)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/09 18:48:13 [warning] [application] Не удалось присвоить небезопасный атрибут "depid" класса "Department".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\DepartmentController.php (104)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/09 18:49:18 [warning] [application] Не удалось присвоить небезопасный атрибут "depid" класса "Department".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\DepartmentController.php (104)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/09 18:52:56 [warning] [application] Не удалось присвоить небезопасный атрибут "depid" класса "Department".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\DepartmentController.php (105)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/09 18:53:32 [warning] [application] Не удалось присвоить небезопасный атрибут "depid" класса "Department".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\DepartmentController.php (105)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:38:52 [warning] [application] Не удалось присвоить небезопасный атрибут "dg_null" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:38:52 [warning] [application] Не удалось присвоить небезопасный атрибут "doc" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:38:52 [warning] [application] Не удалось присвоить небезопасный атрибут "where_return" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:43:11 [warning] [application] Не удалось присвоить небезопасный атрибут "dg_null" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:43:11 [warning] [application] Не удалось присвоить небезопасный атрибут "doc" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:43:11 [warning] [application] Не удалось присвоить небезопасный атрибут "where_return" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:48:41 [warning] [application] Не удалось присвоить небезопасный атрибут "dg_null" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:48:41 [warning] [application] Не удалось присвоить небезопасный атрибут "doc" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:48:41 [warning] [application] Не удалось присвоить небезопасный атрибут "where_return" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:49:29 [warning] [application] Не удалось присвоить небезопасный атрибут "dg_null" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:49:29 [warning] [application] Не удалось присвоить небезопасный атрибут "doc" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:49:29 [warning] [application] Не удалось присвоить небезопасный атрибут "where_return" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:49:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "docs/platez".' in D:\OpenServer\domains\localhost\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\OpenServer\domains\localhost\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('docs/platez')
+#1 D:\OpenServer\domains\localhost\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 D:\OpenServer\domains\localhost\tffin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tffin/index.php?r=docs/platez
+HTTP_REFERER=http://localhost/tffin/index.php?r=pay/update&id=1339&ret=1
+---
+2017/02/10 15:51:10 [warning] [application] Не удалось присвоить небезопасный атрибут "dg_null" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:51:10 [warning] [application] Не удалось присвоить небезопасный атрибут "doc" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:51:10 [warning] [application] Не удалось присвоить небезопасный атрибут "where_return" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:51:54 [warning] [application] Не удалось присвоить небезопасный атрибут "dg_null" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:51:54 [warning] [application] Не удалось присвоить небезопасный атрибут "doc" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:51:54 [warning] [application] Не удалось присвоить небезопасный атрибут "where_return" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:52:23 [warning] [application] Не удалось присвоить небезопасный атрибут "dg_null" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:52:23 [warning] [application] Не удалось присвоить небезопасный атрибут "doc" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:52:23 [warning] [application] Не удалось присвоить небезопасный атрибут "where_return" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:52:30 [warning] [application] Не удалось присвоить небезопасный атрибут "dg_null" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:52:30 [warning] [application] Не удалось присвоить небезопасный атрибут "doc" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:52:30 [warning] [application] Не удалось присвоить небезопасный атрибут "where_return" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:55:09 [warning] [application] Не удалось присвоить небезопасный атрибут "dg_null" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:55:09 [warning] [application] Не удалось присвоить небезопасный атрибут "where_return" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:56:19 [warning] [application] Не удалось присвоить небезопасный атрибут "dg_null" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:56:19 [warning] [application] Не удалось присвоить небезопасный атрибут "where_return" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:56:25 [warning] [application] Не удалось присвоить небезопасный атрибут "dg_null" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:56:25 [warning] [application] Не удалось присвоить небезопасный атрибут "where_return" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:56:46 [warning] [application] Не удалось присвоить небезопасный атрибут "dg_null" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:56:46 [warning] [application] Не удалось присвоить небезопасный атрибут "where_return" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:56:51 [warning] [application] Не удалось присвоить небезопасный атрибут "dg_null" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:56:51 [warning] [application] Не удалось присвоить небезопасный атрибут "where_return" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:57:23 [warning] [application] Не удалось присвоить небезопасный атрибут "dg_null" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:57:23 [warning] [application] Не удалось присвоить небезопасный атрибут "where_return" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:57:30 [warning] [application] Не удалось присвоить небезопасный атрибут "dg_null" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:57:30 [warning] [application] Не удалось присвоить небезопасный атрибут "where_return" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:58:23 [warning] [application] Не удалось присвоить небезопасный атрибут "dg_null" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:58:23 [warning] [application] Не удалось присвоить небезопасный атрибут "where_return" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 15:58:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "docs/platez".' in D:\OpenServer\domains\localhost\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\OpenServer\domains\localhost\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('docs/platez')
+#1 D:\OpenServer\domains\localhost\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 D:\OpenServer\domains\localhost\tffin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tffin/index.php?r=docs/platez
+HTTP_REFERER=http://localhost/tffin/index.php?r=pay/update&id=1339&ret=1
+---
+2017/02/10 15:59:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "docs/platez/FCG_HJR_USs_English.csv".' in D:\OpenServer\domains\localhost\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\OpenServer\domains\localhost\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('docs/platez/FCG...')
+#1 D:\OpenServer\domains\localhost\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 D:\OpenServer\domains\localhost\tffin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tffin/index.php?r=docs/platez/FCG_HJR_USs_English.csv
+HTTP_REFERER=http://localhost/tffin/index.php?r=pay/update&id=1339&ret=1
+---
+2017/02/10 16:01:22 [warning] [application] Не удалось присвоить небезопасный атрибут "dg_null" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 16:01:22 [warning] [application] Не удалось присвоить небезопасный атрибут "where_return" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 16:01:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "docs/platez/589db9a25df09.pdf".' in D:\OpenServer\domains\localhost\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\OpenServer\domains\localhost\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('docs/platez/589...')
+#1 D:\OpenServer\domains\localhost\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 D:\OpenServer\domains\localhost\tffin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tffin/index.php?r=docs/platez/589db9a25df09.pdf
+HTTP_REFERER=http://localhost/tffin/index.php?r=pay/update&id=1339&ret=1
+---
+2017/02/10 16:03:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "docs/platez/589db9a25df09.pdf".' in D:\OpenServer\domains\localhost\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\OpenServer\domains\localhost\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('docs/platez/589...')
+#1 D:\OpenServer\domains\localhost\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 D:\OpenServer\domains\localhost\tffin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tffin/index.php?r=docs/platez/589db9a25df09.pdf
+HTTP_REFERER=http://localhost/tffin/index.php?r=pay/update&id=1339&ret=1
+---
+2017/02/10 16:05:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "docs/platez/589db9a25df09.pdf".' in D:\OpenServer\domains\localhost\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\OpenServer\domains\localhost\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('docs/platez/589...')
+#1 D:\OpenServer\domains\localhost\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 D:\OpenServer\domains\localhost\tffin\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tffin/index.php?r=docs/platez/589db9a25df09.pdf
+HTTP_REFERER=http://localhost/tffin/index.php?r=pay/update&id=1339&ret=1
+---
+2017/02/10 16:28:16 [warning] [application] Не удалось присвоить небезопасный атрибут "dg_null" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 16:28:16 [warning] [application] Не удалось присвоить небезопасный атрибут "where_return" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (184)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 16:30:01 [warning] [application] Не удалось присвоить небезопасный атрибут "dg_null" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (185)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/10 16:30:01 [warning] [application] Не удалось присвоить небезопасный атрибут "where_return" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (185)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/15 12:33:28 [warning] [application] Не удалось присвоить небезопасный атрибут "date_g" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (122)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/15 12:33:28 [warning] [application] Не удалось присвоить небезопасный атрибут "dg_null" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (122)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/15 12:33:28 [warning] [application] Не удалось присвоить небезопасный атрибут "where_return" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (122)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/15 12:36:33 [warning] [application] Не удалось присвоить небезопасный атрибут "date_g" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (122)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/15 12:36:33 [warning] [application] Не удалось присвоить небезопасный атрибут "dg_null" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (122)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/15 12:36:33 [warning] [application] Не удалось присвоить небезопасный атрибут "doc" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (122)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/15 12:36:33 [warning] [application] Не удалось присвоить небезопасный атрибут "where_return" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (122)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/15 12:47:33 [warning] [application] Не удалось присвоить небезопасный атрибут "dg_null" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (185)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/15 12:47:33 [warning] [application] Не удалось присвоить небезопасный атрибут "doc" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (185)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/15 12:47:33 [warning] [application] Не удалось присвоить небезопасный атрибут "where_return" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (185)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/15 12:49:56 [warning] [application] Не удалось присвоить небезопасный атрибут "dg_null" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (185)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/15 12:49:56 [warning] [application] Не удалось присвоить небезопасный атрибут "doc" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (185)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)
+2017/02/15 12:49:56 [warning] [application] Не удалось присвоить небезопасный атрибут "where_return" класса "Pay".
+in D:\OpenServer\domains\localhost\tffin\protected\controllers\PayController.php (185)
+in D:\OpenServer\domains\localhost\tffin\index.php (13)

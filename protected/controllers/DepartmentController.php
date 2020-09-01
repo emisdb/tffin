@@ -101,12 +101,7 @@ class DepartmentController extends Controller
 		}
 		if(isset($_POST['Department']))
 		{
-			$depid= DepartmentId::model()->find("id=".$id);
-			if($depid)
-			{
-				$depid->ckey=$_POST['Department']['depid'];
-				$depid->save();
-			}
+			$model->depid=$_POST['Department']['depid'];
 			$model->attributes=$_POST['Department'];
 			if($model->save())
 				$this->redirect(array('admin'));

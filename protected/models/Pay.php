@@ -12,6 +12,7 @@
  * @property string $date
  * @property string $date_g
  * @property integer $account_id
+  * @property integer $doc
  *
  * The followings are the available model relations:
  * @property Exp $exp
@@ -118,6 +119,7 @@ class Pay extends CActiveRecord
 		return array(
 			array('exp_id, date', 'required'),
 			array('exp_id', 'numerical', 'integerOnly'=>true),
+//			array('doc', 'file', 'maxSize'=>10*1024*1024),
 			array('amount', 'numerical'),
 			array('date_g', 'safe', 'on'=>'update,create,createID'),
 			array('name', 'length', 'max'=>64),
@@ -157,6 +159,7 @@ class Pay extends CActiveRecord
 			'depname' => 'Фирма',
 			'expname' => 'по сч.',
 			'expdate' => 'от',
+			'doc' => 'Документ',
 			'cliname' => 'Клиент',
 		);
 	}
